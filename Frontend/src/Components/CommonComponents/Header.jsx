@@ -1,31 +1,42 @@
 import React from "react";
 
-const Header = () => {
+export default function Header() {
   return (
-    <>
-      <div className="navbar bg-base-100 shadow-sm">
-  <div className="flex-1">
-    <a className="btn btn-ghost text-xl">daisyUI</a>
-  </div>
-  <div className="flex-none">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Link</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="bg-base-100 rounded-t-none p-2">
-            <li><a>Link 1</a></li>
-            <li><a>Link 2</a></li>
-          </ul>
-        </details>
-      </li>
-    </ul>
-  </div>
-</div>
+    <div className="navbar bg-base-100">
+      {/* Left side: Logo */}
+      <div className="flex-1">
+        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+      </div>
 
-<h1 className='text-blue'></h1>
-    </>
+      {/* Middle: Menu items */}
+      <div className="flex">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <a>Item 1</a>
+          </li>
+          <li tabIndex={0}>
+            <details>
+              <summary>Parent</summary>
+              <ul className="p-2 bg-base-100">
+                <li>
+                  <a>Submenu 1</a>
+                </li>
+                <li>
+                  <a>Submenu 2</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <a>Item 3</a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Right side: Button */}
+      <div className="flex-none">
+        <button className="btn btn-primary">Button</button>
+      </div>
+    </div>
   );
-};
-
-export default Header;
+}
