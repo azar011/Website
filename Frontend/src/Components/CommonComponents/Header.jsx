@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <>
       {/* Top Header */}
-       <div className="bg-gray-900">
+       <div className="bg-gray-900 lg:block md:block hidden">
         <div className="max-w-screen-xl py-2 px-4 mx-auto flex flex-col sm:flex-row sm:justify-between sm:items-center text-white text-sm space-y-2 sm:space-y-0">
           {/* Left side: Phone & Email */}
           <div className="flex flex-row justify-between sm:items-center sm:space-x-6 space-y-1 sm:space-y-0 text-center sm:text-left">
@@ -31,7 +31,7 @@ const Header = () => {
             </div>
             <div className="flex items-center justify-center sm:justify-start space-x-2">
               <FiMail className="text-blue-400" />
-              <p>tech@gmail.com</p>
+              <p>vitecodetechnologies@gmail.com</p>
             </div>
           </div>
 
@@ -56,14 +56,14 @@ const Header = () => {
       {/* Main Navbar */}
       <nav className="bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-50">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <a href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
             <img
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-8"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Tech
+            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+              ViteCode
             </span>
           </a>
 
@@ -130,6 +130,8 @@ const Header = () => {
                 </a>
               </li>
 
+
+
               {/* Hover Dropdown */}
               <li className="relative group">
                 <button
@@ -151,8 +153,15 @@ const Header = () => {
 
                 <div
                   className="absolute hidden group-hover:block bg-white dark:bg-gray-800 shadow-lg 
-                  rounded-md w-65 pt-1 z-50"
+                  rounded-md w-65 py-3 z-50"
                 >
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 
+                    dark:text-gray-200 dark:hover:bg-gray-700"
+                  >
+                    Data Science
+                  </a>
                   <a
                     href="#"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 
@@ -179,14 +188,7 @@ const Header = () => {
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 
                     dark:text-gray-200 dark:hover:bg-gray-700"
                   >
-                    MERN Full Stack Development
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 
-                    dark:text-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Python Full Stack Development
+                    Full Stack Web Development
                   </a>
                 </div>
               </li>
@@ -210,3 +212,6 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
