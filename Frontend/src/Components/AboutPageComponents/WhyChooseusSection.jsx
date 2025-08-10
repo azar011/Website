@@ -60,9 +60,9 @@ const WhyChooseUsSection = () => {
       {/* Image */}
       <div className="flex justify-center items-center">
         <img
-          src="/img/feature.jpg"
+          src="https://www.its.ac.id/stp/wp-content/uploads/sites/113/2024/09/ilbi-shaking-corporate-meeting-together-teamwork-1.png"
           alt="IT Training Features"
-          className="rounded-lg shadow-lg max-w-xs sm:max-w-sm md:max-w-md w-full object-cover"
+          className="rounded-lg shadow-lg w-full max-w-lg sm:max-w-xl md:max-w-2xl object-cover"
         />
       </div>
     </section>
