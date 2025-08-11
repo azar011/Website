@@ -6,13 +6,13 @@ import MissionVisionSection from "../Components/AboutPageComponents/MissionVisio
 import Footer from "../Components/CommonComponents/Footer"
 const AboutPage = () => {
   return (
-    <main className=" p-5">
+    <>
       <Header />
       <DetailSection />
       <WhyChooseUsSection />
       <MissionVisionSection />
       <Footer />
-    </main>
+    </>
   );
 };
 

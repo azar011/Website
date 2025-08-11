@@ -24,7 +24,7 @@ const Header = () => {
           <div className="flex flex-row justify-between sm:items-center sm:space-x-6 space-y-1 sm:space-y-0 text-center sm:text-left">
             <div className="flex items-center justify-center sm:justify-start space-x-2">
               <FiPhone className="text-blue-400" />
-              <p>+91 63800 30086</p>
+              <p>+91 98765 432106</p>
             </div>
             <div>
               <p>|</p>

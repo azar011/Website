@@ -3,7 +3,7 @@ import { FaGraduationCap, FaCertificate, FaBookReader } from "react-icons/fa";
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="container mx-auto py-10 sm:py-14 md:py-10 px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <section className="container max-w-6xl mx-auto py-10 sm:py-14 md:py-10 px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       {/* Text */}
       <div>
         <h6 className="text-blue-600 uppercase tracking-widest mb-2 text-sm sm:text-base">

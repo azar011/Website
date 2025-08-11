@@ -2,11 +2,11 @@ import React from "react";
 
 const DetailSection = () => {
   return (
-    <section className="container mx-auto py-10 sm:py-14 md:py-20 px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <section className="container max-w-6xl mx-auto py-10 sm:py-14 md:py-20 px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       {/* Image */}
       <div className="flex justify-center items-center">
         <img
-          src="https://tse4.mm.bing.net/th/id/OIP.5qdsp2sv_u0d45ZYrQ56DgHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+          src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg"
           alt="About Us"
           className="rounded-lg shadow-lg w-full max-w-lg sm:max-w-xl md:max-w-2xl object-cover"
         />

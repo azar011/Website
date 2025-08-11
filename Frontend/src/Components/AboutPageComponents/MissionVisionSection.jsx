@@ -3,7 +3,7 @@ import { FaBullseye, FaEye } from "react-icons/fa";
 
 const MissionVisionSection = () => {
   return (
-    <section className="bg-white py-10 sm:py-14 md:py-10 px-4">
+    <section className="max-w-6xl mx-auto bg-white py-10 sm:py-14 md:py-10 px-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {/* Mission */}
         <div className="bg-white shadow-2xl rounded-lg p-6 border border-gray-100">

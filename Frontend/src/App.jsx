@@ -7,6 +7,7 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Courses from "./Pages/Courses";
 import Services from "./Pages/Services";
+import WpIcon from "./Components/CommonComponents/WpIcon";
 
 const App = () => {
   return (
@@ -18,8 +19,10 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/services" element={<Services />} />
+          
         </Routes>
       </BrowserRouter>
+      <WpIcon />
     </>
   );
 };
