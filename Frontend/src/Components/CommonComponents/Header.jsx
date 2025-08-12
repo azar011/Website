@@ -135,7 +135,7 @@ const Header = () => {
               {/* Hover Dropdown */}
               <li className="relative group">
                 <button
-                  onClick={() => navigate("/courses")}
+                  onClick={() => navigate("/course")}
                   className={`${linkClasses("/courses")} cursor-pointer flex items-center gap-1`}
                 >
                   Courses

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const WpIcon = () => {
-  const whatsappNumber = "98765 43210";
+  const whatsappNumber = "919876543210";
   const message = "Hello!";
 
   const openWhatsapp = () => {
