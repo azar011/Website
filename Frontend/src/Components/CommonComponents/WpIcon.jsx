@@ -1,11 +1,14 @@
 import React from 'react';
 
 const WpIcon = () => {
-  const whatsappNumber = "98765 43210";
-  const message = "Hello!";
+  const whatsappNumber = "919698833469";
+  const message = "Hello, I want to join your Course";
 
   const openWhatsapp = () => {
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
   };
 
   return (
