@@ -1,8 +1,13 @@
 import React from 'react';
 
 const WpIcon = () => {
+<<<<<<< HEAD
   const whatsappNumber = "919698833469";
   const message = "Hello, I want to join your Course";
+=======
+  const whatsappNumber = "919876543210";
+  const message = "Hello!";
+>>>>>>> 2586674753df5b63896b8835767aa732f2c62cb4
 
   const openWhatsapp = () => {
     window.open(
