@@ -9,7 +9,7 @@ const Header = () => {
   const location = useLocation();
 
   const linkClasses = (path) =>
-    `block py-2 px-3 md:p-0 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 ${
+    `block py-2 px-3 md:p-0 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent hover:text-blue dark:border-gray-700  ${
       location.pathname === path
         ? "text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
         : "text-gray-900 dark:text-white"
@@ -120,23 +120,21 @@ const Header = () => {
               md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
             >
               <li>
-                <a href="/" className={linkClasses("/")}>
+                <a href="/" className={`${linkClasses("/")} hover:text-blue-700`}>
                   Home
                 </a>
               </li>
               <li>
-                <a href="/about" className={linkClasses("/about")}>
+                <a href="/about" className={`${linkClasses("/about")} hover:text-blue-700`}>
                   About
                 </a>
               </li>
-
-
 
               {/* Hover Dropdown */}
               <li className="relative group">
                 <button
                   onClick={() => navigate("/course")}
-                  className={`${linkClasses("/courses")} cursor-pointer flex items-center gap-1`}
+                  className={`${linkClasses("/course")} cursor-pointer flex items-center gap-1 hover:text-blue-700`}
                 >
                   Courses
                   <svg
@@ -194,12 +192,12 @@ const Header = () => {
               </li>
 
               <li>
-                <a href="/services" className={linkClasses("/services")}>
+                <a href="/services" className={`${linkClasses("/services")} hover:text-blue-700`}>
                   Services
                 </a>
               </li>
               <li>
-                <a href="/contact" className={linkClasses("/contact")}>
+                <a href="/contact" className={`${linkClasses("/contact")} hover:text-blue-700`}>
                   Contact
                 </a>
               </li>
