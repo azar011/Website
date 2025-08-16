@@ -74,7 +74,7 @@ const Header = () => {
               focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center 
               dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Join Us
+              Internship !
             </button>
 
             {/* Mobile Menu Button */}
@@ -192,7 +192,7 @@ const Header = () => {
               </li>
 
               <li>
-                <a href="/services" className={`${linkClasses("/services")} hover:text-blue-700`}>
+                <a href="/service" className={`${linkClasses("/service")} hover:text-blue-700`}>
                   Services
                 </a>
               </li>
@@ -210,6 +210,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
