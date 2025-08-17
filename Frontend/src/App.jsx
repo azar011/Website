@@ -9,19 +9,24 @@ import Course from "./Pages/Course";
 import Services from "./Pages/Services";
 import WpIcon from "./Components/CommonComponents/WpIcon";
 import CourseDetails from "./Components/CoursePageComponents/CourseDetails";
+import MyContextProvider from "./Context/MyContextProvider";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <>
+      <ToastContainer />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/course" element={<Course />} />
-          <Route path='/course/:id' element={<CourseDetails />} />
-          <Route path="/service" element={<Services />} />
-        </Routes>
+        <MyContextProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/course" element={<Course />} />
+            <Route path='/course/:id' element={<CourseDetails />} />
+            <Route path="/service" element={<Services />} />
+          </Routes>
+        </MyContextProvider>
       </BrowserRouter>
       <WpIcon />
     </>

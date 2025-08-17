@@ -4,7 +4,7 @@ const AddCourse = () => {
   return (
     <>
         <form>
-            <label>Enter </label>
+            <label>Enter Course Name </label>
         </form>
     </>
   )

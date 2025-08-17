@@ -1,0 +1,88 @@
+{
+  "hash": "c02ce34c",
+  "configHash": "2b557fc6",
+  "lockfileHash": "f4e07b44",
+  "browserHash": "ff155742",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "a2f5a681",
+      "needsInterop": true
+    },
+    "react-dom": {
+      "src": "../../node_modules/react-dom/index.js",
+      "file": "react-dom.js",
+      "fileHash": "ba63aade",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "44b8e665",
+      "needsInterop": true
+    },
+    "react/jsx-runtime": {
+      "src": "../../node_modules/react/jsx-runtime.js",
+      "file": "react_jsx-runtime.js",
+      "fileHash": "22daa761",
+      "needsInterop": true
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "5fbf3bcc",
+      "needsInterop": false
+    },
+    "flowbite-react": {
+      "src": "../../node_modules/flowbite-react/dist/index.js",
+      "file": "flowbite-react.js",
+      "fileHash": "314195fe",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "366daf5e",
+      "needsInterop": true
+    },
+    "react-icons/fa": {
+      "src": "../../node_modules/react-icons/fa/index.mjs",
+      "file": "react-icons_fa.js",
+      "fileHash": "6324ab7a",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "2bc1af03",
+      "needsInterop": false
+    },
+    "react-toastify": {
+      "src": "../../node_modules/react-toastify/dist/index.mjs",
+      "file": "react-toastify.js",
+      "fileHash": "d08c2e50",
+      "needsInterop": false
+    },
+    "flowbite": {
+      "src": "../../node_modules/flowbite/lib/esm/index.js",
+      "file": "flowbite.js",
+      "fileHash": "6bcb4351",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-2FIHDXPZ": {
+      "file": "chunk-2FIHDXPZ.js"
+    },
+    "chunk-PFG2UKEP": {
+      "file": "chunk-PFG2UKEP.js"
+    },
+    "chunk-32EALFBN": {
+      "file": "chunk-32EALFBN.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+}

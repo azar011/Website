@@ -1,12 +1,15 @@
 import React from 'react'
 import { ToastContainer } from 'react-toastify'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import MyContextProvider from './Context/MyContextProvider'
+
 import AdminSideBar from './Components/AdminSideBar'
 import AdminNavBar from './Components/AdminNavBar'
-import AddCourse from './Pages/AddCourse'
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AddService from './Pages/AddService'
-import MyContextProvider from './Context/MyContextProvider'
+import AddCourse from './Pages/AddCourse'
+import ServiceList from './Pages/ServiceList'
+import ContactEnquiryList from './Pages/ContactEnquiryList'
 
 const App = () => {
 
@@ -21,10 +24,16 @@ const App = () => {
               <AdminNavBar />
               <div className="p-5">
                 <Routes>
-                  <Route path='/addcourse' element={<AddCourse />} />
+                  <Route path='/' element={<AddCourse />} />
                 </Routes>
                 <Routes>
                   <Route path='/addservice' element={<AddService />} />
+                </Routes>
+                <Routes>
+                  <Route path='/servicelist' element={<ServiceList />} />
+                </Routes>
+                <Routes>
+                  <Route path='/contactenquirylist' element={<ContactEnquiryList />} />
                 </Routes>
               </div>
             </div>
