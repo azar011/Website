@@ -8,3 +8,17 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Code card tilt with smooth transition */
+.code-card {
+  transform: rotateX(6deg) rotateY(-6deg) scale(1.02);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.code-card:hover {
+  transform: rotateX(0deg) rotateY(0deg) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+
+
