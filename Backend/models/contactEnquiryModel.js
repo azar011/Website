@@ -17,6 +17,10 @@ const contactEnquirySchema = new mongoose.Schema({
         type: [String],
         required: true,
     },
+    contactEnquiryStatus: {
+        type: String,
+        required: true,
+    },
 })
 
 const contactEnquiryModel = mongoose.model('contactenquires', contactEnquirySchema)

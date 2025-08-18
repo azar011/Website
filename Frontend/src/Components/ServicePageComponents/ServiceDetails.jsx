@@ -23,14 +23,14 @@ const ServiceDetails = () => {
                             <div className="flex justify-between items-center mb-4">
                                 <h3 className="text-xl font-bold text-gray-800 ">{value.serviceTitle}</h3>
                                 <span className="bg-green-500  text-white text-xs font-semibold px-3 py-1 rounded-full">
-                                    {value.serviceDiscount} % Off
+                                    {value.serviceDiscount} Off
                                 </span>
                             </div>
 
                             {/* Price */}
                             <div className="mb-4">
-                                <span className="text-gray-400 line-through mr-2">₹ {value.serviceOldPrice}</span>
-                                <span className="lg:text-3xl text-2xl font-bold">₹ {value.serviceNewPrice}</span>
+                                <span className="text-gray-400 line-through mr-2">₹{value.serviceOldPrice}</span>
+                                <span className="lg:text-3xl text-2xl font-bold">₹{value.serviceNewPrice}</span>
                             </div>
 
                             {/* Description */}

@@ -34,10 +34,6 @@ const MyContextProvider = ({children}) => {
     const [selectedContactInterests, setSelectedContactInterests] = useState([]);
 
     const contactInterestsList = [
-        "Data Science",
-        "Web Design",
-        "Web Development",
-        "Full Stack",
         "Project",
         "Course",
         "Internship"
@@ -57,10 +53,9 @@ const MyContextProvider = ({children}) => {
         e.preventDefault();
         setcontactEnquirySubmitted(true);
 
-        // Validation check
         if (
             !contactEnquiryName ||
-            !contactEnquiryNumber ||
+            contactEnquiryNumber.length !== 10 ||
             !contactEnquiryMessage ||
             selectedContactInterests.length === 0
         ) {
@@ -91,7 +86,7 @@ const MyContextProvider = ({children}) => {
             console.log(`Error Name : ${err.name}, Error Message : ${err.message}`)
         }
     };
-    
+
     const myContextValue = {
 
         serviceData,

@@ -34,7 +34,7 @@ const AddService = () => {
           <div>
             <label className="block font-medium">Old Price</label>
             <input
-              type="text"
+              type="number"
               value={serviceOldPrice}
               onChange={(e) => setSeriviceOldPrice(e.target.value)}
               className="w-full border rounded-lg p-2"
@@ -43,7 +43,7 @@ const AddService = () => {
           <div>
             <label className="block font-medium">New Price</label>
             <input
-              type="text"
+              type="number"
               value={serviceNewPrice}
               onChange={(e) => setSeriviceNewPrice(e.target.value)}
               className="w-full border rounded-lg p-2"
@@ -51,13 +51,13 @@ const AddService = () => {
             />
           </div>
           {/* Discount */}
-        <div>
-          <label className="block font-medium">Discount</label>
+          <div>
+          <label className="block font-medium">Discount (%)</label>
           <input
             type="text"
             value={serviceDiscount}
-            onChange={(e) => setSeriviceDiscount(e.target.value)}
-            className="w-full border rounded-lg p-2"
+            readOnly
+            className="w-full border rounded-lg p-2 bg-gray-100 cursor-not-allowed"
           />
         </div>
         </div>

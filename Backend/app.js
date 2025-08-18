@@ -18,6 +18,9 @@ app.use('/service', serviceRouter)
 const contactEnquiryRouter = require("./routes/contactEnquiryRoutes");
 app.use('/contactenquiry', contactEnquiryRouter)
 
+const courseRouter = require("./routes/courseRoutes");
+app.use('/course', courseRouter)
+
 app.listen(process.env.PORT, () => {
     console.log(`Server Running on PORT ${process.env.PORT}`)
 })

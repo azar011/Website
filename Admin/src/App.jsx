@@ -9,6 +9,7 @@ import AdminNavBar from './Components/AdminNavBar'
 import AddService from './Pages/AddService'
 import AddCourse from './Pages/AddCourse'
 import ServiceList from './Pages/ServiceList'
+import CourseList from './Pages/CourseList'
 import ContactEnquiryList from './Pages/ContactEnquiryList'
 
 const App = () => {
@@ -34,6 +35,9 @@ const App = () => {
                 </Routes>
                 <Routes>
                   <Route path='/contactenquirylist' element={<ContactEnquiryList />} />
+                </Routes>
+                <Routes>
+                  <Route path='/courselist' element={<CourseList />} />
                 </Routes>
               </div>
             </div>

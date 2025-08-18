@@ -1,80 +1,65 @@
 {
-  "hash": "c02ce34c",
-  "configHash": "2b557fc6",
+  "hash": "9d6f05b3",
+  "configHash": "cdc48e5c",
   "lockfileHash": "f4e07b44",
-  "browserHash": "ff155742",
+  "browserHash": "1dc415e1",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "a2f5a681",
+      "fileHash": "b3111f67",
       "needsInterop": true
     },
     "react-dom": {
       "src": "../../node_modules/react-dom/index.js",
       "file": "react-dom.js",
-      "fileHash": "ba63aade",
+      "fileHash": "651d9458",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "44b8e665",
+      "fileHash": "5fca4c49",
       "needsInterop": true
     },
     "react/jsx-runtime": {
       "src": "../../node_modules/react/jsx-runtime.js",
       "file": "react_jsx-runtime.js",
-      "fileHash": "22daa761",
+      "fileHash": "6d5dad7c",
       "needsInterop": true
     },
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "5fbf3bcc",
-      "needsInterop": false
-    },
-    "flowbite-react": {
-      "src": "../../node_modules/flowbite-react/dist/index.js",
-      "file": "flowbite-react.js",
-      "fileHash": "314195fe",
+      "fileHash": "5e38b7fc",
       "needsInterop": false
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "366daf5e",
+      "fileHash": "ec50a8aa",
       "needsInterop": true
     },
     "react-icons/fa": {
       "src": "../../node_modules/react-icons/fa/index.mjs",
       "file": "react-icons_fa.js",
-      "fileHash": "6324ab7a",
+      "fileHash": "63cfe245",
       "needsInterop": false
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.mjs",
       "file": "react-router-dom.js",
-      "fileHash": "2bc1af03",
+      "fileHash": "8b509df4",
       "needsInterop": false
     },
     "react-toastify": {
       "src": "../../node_modules/react-toastify/dist/index.mjs",
       "file": "react-toastify.js",
-      "fileHash": "d08c2e50",
-      "needsInterop": false
-    },
-    "flowbite": {
-      "src": "../../node_modules/flowbite/lib/esm/index.js",
-      "file": "flowbite.js",
-      "fileHash": "6bcb4351",
+      "fileHash": "1a7e9f00",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-2FIHDXPZ": {
-      "file": "chunk-2FIHDXPZ.js"
-    },
     "chunk-PFG2UKEP": {
       "file": "chunk-PFG2UKEP.js"
     },
