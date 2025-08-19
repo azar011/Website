@@ -1,10 +1,11 @@
 import { BookOpen, Lightbulb, ListChecks, Users, Shield, User, Star, Gift } from "lucide-react";
 import { HiCheckCircle } from "react-icons/hi";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { FaLayerGroup, FaClock, FaFileAlt, FaDownload, FaLaptopCode, FaClosedCaptioning, FaMedal, FaInfinity, FaPlayCircle } from "react-icons/fa";
 import Header from '../CommonComponents/Header'
 import Footer from '../CommonComponents/Footer'
 import { Link } from 'react-router-dom'
+import { myContext } from "../../Context/MyContextProvider";
 
 // Map icons from string names
 const iconMap = {
@@ -12,32 +13,9 @@ const iconMap = {
   Lightbulb,
   ListChecks,
   Users,
-  Shield,
   User,
-  Star,
   Gift,
 };
-
-// Hero Content
-const heroContent = [
-  {
-    tag: "A Course You'll Actually Finish",
-    title: "Spring Boot: Mastering the Fundamentals",
-    subtitle: "Master dependency injection and database integration with Spring Boot and Spring Data JPA",
-    cta: "Enroll Now",
-  },
-];
-
-// Dummy hero content (dynamic)
-const features = [
-  { icon: <FaLayerGroup />, text: "Beginner to Intermediate" },
-  { icon: <FaClock />, text: "6 Hours" },
-  { icon: <FaFileAlt />, text: "80 Lessons" },
-  { icon: <FaLaptopCode />, text: "Hands-on Exercises" },
-  { icon: <FaMedal />, text: "Certificate of Completion" },
-  { icon: <FaInfinity />, text: "Lifetime Access" },
-  { icon: <FaPlayCircle />, text: "Learn at Your Own Pace" },
-];
 
 // ✅ JSON data directly in same file
 const courseContent = [
@@ -107,7 +85,6 @@ const courseContent = [
   },
 ];
 
-
 const CoursePage = () => {
   const [activeId, setActiveId] = useState("");
 
@@ -135,6 +112,8 @@ const CoursePage = () => {
     return () => observer.disconnect();
   }, []);
 
+  const { courseData } = useContext(myContext)
+
   return (
     <>
         <Header />
@@ -144,32 +123,57 @@ const CoursePage = () => {
           <section className="text-black lg:py-16 py-4 px-6 lg:px-20">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 lg:pl-10  gap-10 items-center">
               {/* Left Side */}
-              {heroContent.map((hero, i) => (
-                <div key={i}>
-                  <p className="text-blue-700 mb-3 lg:text-2xl font-bold">{hero.tag}</p>
+              {courseData.map((value, index) => (
+                <>
+                
+                <div key={index}>
+                  <p className="text-blue-700 mb-3 lg:text-2xl font-bold">A Course You'll Actually Finish</p>
 
-                  <h1 className="text-5xl lg:block md:hidden hidden font-bold mb-4 leading-tight">{hero.title}</h1>
-                  <h1 className="text-3xl lg:hidden md:block block font-bold mb-4 leading-tight">{hero.title}</h1>
+                  <h1 className="text-5xl lg:block md:hidden hidden font-bold mb-4 leading-tight">{value.courseName}</h1>
+                  <h1 className="text-3xl lg:hidden md:block block font-bold mb-4 leading-tight">{value.courseName}</h1>
 
-                  <p className="text-gray-800 text-lg mb-8">{hero.subtitle}</p>
+                  <p className="text-gray-800 text-lg mb-8">{value.courseDescription}</p>
 
                   <Link to='/contact' >
-                    <button className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white px-6 py-3 rounded-full font-semibold transition">{hero.cta}</button>
+                    <button className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white px-6 py-3 rounded-full font-semibold transition">Enroll Now</button>
                   </Link>
                 </div>
-              ))}
 
-          {/* Right Side Card */}
-          <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-xs sm:max-w-sm md:w-[320px] mx-auto border border-transparent hover:border-blue-200">
+                <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-xs sm:max-w-sm md:w-[320px] mx-auto border border-transparent hover:border-blue-200">
             <ul className="space-y-4">
-                {features.map((feature, index) => (
-                <li key={index} className="flex items-center gap-3 text-black">
-                    <span className="text-blue-700 text-lg">{feature.icon}</span>
-                    <span>{feature.text}</span>
-                </li>
-                ))}
+              <li className="flex items-center gap-3">
+                <span className="text-blue-700 text-lg"><FaLayerGroup /></span>
+                <span>Beginner to Intermediate</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-blue-700 text-lg"><FaClock /></span>
+                <span>{value.courseHours} Hours</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-blue-700 text-lg"><FaFileAlt /></span>
+                <span>{value.courseTopicsCount} Lessons</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-blue-700 text-lg"><FaLaptopCode /></span>
+                <span>Hands on Exercises</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-blue-700 text-lg"><FaMedal /></span>
+                <span>Certificate of Completion</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-blue-700 text-lg"><FaInfinity /></span>
+                <span>Lifetime Access</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-blue-700 text-lg"><FaPlayCircle /></span>
+                <span>Learn at Your Own Pace</span>
+              </li>
             </ul>
-        </div>
+        </div> 
+
+                </>
+              ))}
 
         </div>
           </section>
@@ -232,6 +236,7 @@ const CoursePage = () => {
               </div>
             </div>
           </section>
+          
         </div>
 
       <Footer />

@@ -87,6 +87,24 @@ const MyContextProvider = ({children}) => {
         }
     };
 
+    // Course Data 
+
+    const [ courseData, setCourseData ] = useState([])
+
+    const fetchCourseData = async () => {
+        try{
+            const courseList = await axios.get(`${url}/course/getcourse`)
+            setCourseData(courseList.data)
+        }
+        catch(err){
+            console.log(`Error Name : ${err.name}, Error Message : ${err.message}`)
+        }
+    }
+
+    useEffect(() => {
+        fetchCourseData()
+    }, [])
+
     const myContextValue = {
 
         serviceData,
@@ -97,7 +115,9 @@ const MyContextProvider = ({children}) => {
 
         selectedContactInterests, contactInterestsList, 
         contactEnquirySubmitted, toggleInterest, 
-        contactEnquirySubmitForm
+        contactEnquirySubmitForm,
+
+        courseData
     }
 
     return (

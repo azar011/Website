@@ -44,35 +44,43 @@ const ServiceList = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            {serviceData.map((value, index) => (
-              <tr key={index} className="hover:bg-blue-50 transition-colors duration-200">
-                <td className="p-3 font-medium text-gray-800">{value.serviceTitle}</td>
-                <td className="p-3 line-through text-gray-800">₹ {value.serviceOldPrice}</td>
-                <td className="p-3 font-bold text-green-600">₹ {value.serviceNewPrice}</td>
-                <td className="p-3 text-red-500">{value.serviceDiscount}</td>
-                <td className="p-3 text-gray-800">{value.serviceDescription}</td>
-                <td className="p-3">
-                  <ul className="space-y-1">
-                    {value.serviceFeatures.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-gray-800">
-                        <FaCheckCircle className="text-green-500" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </td>
-                <td className="p-3 text-center">
-                  <button onClick={() => serviceModalFun(value._id)} className="cursor-pointer flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md shadow-md">
-                    <FaEdit /> Update
-                  </button>
-                </td>
-                <td className="p-3 text-center">
-                  <button onClick={() => serviceDeleteFun(value._id)} className="cursor-pointer flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md shadow-md">
-                    <FaTrash /> Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {
+              serviceData.length === 0
+              ? 
+                <tr>
+                  <td colSpan={8} className="p-5 text-red-600 font-bold text-danger text-center" >No Service Found</td>
+                </tr>
+              :
+              serviceData.map((value, index) => (
+                <tr key={index} className="hover:bg-blue-50 transition-colors duration-200">
+                  <td className="p-3 font-medium text-gray-800">{value.serviceTitle}</td>
+                  <td className="p-3 line-through text-gray-800">₹ {value.serviceOldPrice}</td>
+                  <td className="p-3 font-bold text-green-600">₹ {value.serviceNewPrice}</td>
+                  <td className="p-3 text-red-500">{value.serviceDiscount}</td>
+                  <td className="p-3 text-gray-800">{value.serviceDescription}</td>
+                  <td className="p-3">
+                    <ul className="space-y-1">
+                      {value.serviceFeatures.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2 text-gray-800">
+                          <FaCheckCircle className="text-green-500" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td className="p-3 text-center">
+                    <button onClick={() => serviceModalFun(value._id)} className="cursor-pointer flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md shadow-md">
+                      <FaEdit /> Update
+                    </button>
+                  </td>
+                  <td className="p-3 text-center">
+                    <button onClick={() => serviceDeleteFun(value._id)} className="cursor-pointer flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md shadow-md">
+                      <FaTrash /> Delete
+                    </button>
+                  </td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>

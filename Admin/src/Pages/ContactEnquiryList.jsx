@@ -23,63 +23,71 @@ const ContactEnquiryList = () => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            {contactEnquiryData.map((value, index) => (
-              <tr key={index} className="hover:bg-blue-50 transition-colors duration-200">
-                <td className="p-4 font-bold text-gray-800">{value.contactEnquiryName}</td>
-                <td className="p-4 font-bold text-gray-800">{value.contactEnquiryNumber}</td>
-                <td className="p-4 font-bold text-gray-800">{value.contactEnquiryMessage}</td>
-                <td className="p-4">
-                  <ul className="space-y-1">
-                    {value.contactEnquiryInterests.map((value, index) => (
-                      <li key={index} className="flex items-center font-bold gap-2 text-gray-800">
-                        <FaCheckCircle className="text-green-500" />
-                        {value}
-                      </li>
-                    ))}
-                  </ul>
-                </td>
+            {
+              contactEnquiryData.length === 0
+              ? 
+                <tr>
+                  <td colSpan={6} className="p-5 text-red-600 font-bold text-danger text-center">No Enquires Found</td>
+                </tr>
+              :
+              contactEnquiryData.map((value, index) => (
+                <tr key={index} className="hover:bg-blue-50 transition-colors duration-200">
+                  <td className="p-4 font-bold text-gray-800">{value.contactEnquiryName}</td>
+                  <td className="p-4 font-bold text-gray-800">{value.contactEnquiryNumber}</td>
+                  <td className="p-4 font-bold text-gray-800">{value.contactEnquiryMessage}</td>
+                  <td className="p-4">
+                    <ul className="space-y-1">
+                      {value.contactEnquiryInterests.map((value, index) => (
+                        <li key={index} className="flex items-center font-bold gap-2 text-gray-800">
+                          <FaCheckCircle className="text-green-500" />
+                          {value}
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
 
-                <td className="p-4">
-                  <div className="flex items-center gap-2">
-                    {/* Bullet point */}
-                    <span
-                      className={`text-lg font-bold p-2 rounded-full ${
-                        value.contactEnquiryStatus === "Pending"
-                            ? "bg-yellow-500"
-                            : value.contactEnquiryStatus === "Hold"
-                            ? "bg-orange-500"
-                            : value.contactEnquiryStatus === "Success"
-                            ? "bg-green-500"
-                            : value.contactEnquiryStatus === "Not Interested"
-                            ? "bg-red-500"
-                            : value.contactEnquiryStatus === "In Progress"
-                            ? "bg-blue-500"
-                            : "bg-gray-400"
-                      }`}>
-                    </span>
+                  <td className="p-4">
+                    <div className="flex items-center gap-2">
+                      {/* Bullet point */}
+                      <span
+                        className={`text-lg font-bold p-2 rounded-full ${
+                          value.contactEnquiryStatus === "Pending"
+                              ? "bg-yellow-500"
+                              : value.contactEnquiryStatus === "Hold"
+                              ? "bg-orange-500"
+                              : value.contactEnquiryStatus === "Success"
+                              ? "bg-green-500"
+                              : value.contactEnquiryStatus === "Not Interested"
+                              ? "bg-red-500"
+                              : value.contactEnquiryStatus === "In Progress"
+                              ? "bg-blue-500"
+                              : "bg-gray-400"
+                        }`}>
+                      </span>
 
-                    {/* Dropdown */}
-                    <select
-                        value={value.contactEnquiryStatus || "Pending"}
-                        onChange={(e) => updateContactEnquiryStatusFun(value._id, e.target.value)}
-                        className="px-3 py-1 text-sm font-medium rounded-md border cursor-pointer">
-                        <option value="Pending">Pending</option>
-                        <option value="Hold">Hold</option>
-                        <option value="Success">Success</option>
-                        <option value="Not Interested">Not Interested</option>
-                        <option value="In Progress">In Progress</option>
-                    </select>
-                  </div>
-                </td>
+                      {/* Dropdown */}
+                      <select
+                          value={value.contactEnquiryStatus || "Pending"}
+                          onChange={(e) => updateContactEnquiryStatusFun(value._id, e.target.value)}
+                          className="px-3 py-1 text-sm font-medium rounded-md border cursor-pointer">
+                          <option value="Pending">Pending</option>
+                          <option value="Hold">Hold</option>
+                          <option value="Success">Success</option>
+                          <option value="Not Interested">Not Interested</option>
+                          <option value="In Progress">In Progress</option>
+                      </select>
+                    </div>
+                  </td>
 
-                {/* Delete */}
-                <td className="p-3 text-center">
-                  <button className="cursor-pointer flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md shadow-md" onClick={() => deleteContactEnquiryFun(value._id)}>
-                    <FaTrash /> Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+                  {/* Delete */}
+                  <td className="p-3 text-center">
+                    <button className="cursor-pointer flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md shadow-md" onClick={() => deleteContactEnquiryFun(value._id)}>
+                      <FaTrash /> Delete
+                    </button>
+                  </td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>
