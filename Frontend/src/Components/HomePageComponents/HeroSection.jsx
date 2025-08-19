@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-
 const HeroSection = () => {
+
   const words = [
     "IT Services",
     "Internship Programs",
@@ -32,11 +32,18 @@ const HeroSection = () => {
   }, [subIndex, index, reverse]);
 
   return (
-    <section className="bg-gray-50 py-20 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+    <section className="bg-gray-50 lg:py-22 lg:px-6 md:px-6 px-2">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 lg:py-0 py-6 items-center gap-12">
         {/* Left Side: Headline & Text */}
-        <div className="">
-          <h1 className="text-5xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
+        <div className='lg:ps-5'>
+          <h1 className="text-5xl lg:block md:block hidden font-extrabold text-gray-900 leading-tight">
+            Empowering Future with <br />{" "}
+            <span className="text-blue-600">
+              {words[index].substring(0, subIndex)}
+            </span>
+            <span className="border-r-2 border-blue-600 ml-1 animate-blink"></span>
+          </h1>
+           <h1 className="text-4xl lg:hidden md:hidden block font-extrabold text-gray-900 leading-tight">
             Empowering Future with <br />{" "}
             <span className="text-blue-600">
               {words[index].substring(0, subIndex)}

@@ -7,7 +7,6 @@ import Footer from '../CommonComponents/Footer'
 import { Link } from 'react-router-dom'
 import { myContext } from "../../Context/MyContextProvider";
 
-// Map icons from string names
 const iconMap = {
   BookOpen,
   Lightbulb,
@@ -17,7 +16,6 @@ const iconMap = {
   Gift,
 };
 
-// ✅ JSON data directly in same file
 const courseContent = [
   {
     id: "about",

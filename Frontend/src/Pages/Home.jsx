@@ -6,7 +6,6 @@ import WhyChooseUs from '../Components/HomePageComponents/WhyChooseUs'
 import AboutSection from '../Components/HomePageComponents/AboutSection'
 import CourseSection from '../Components/HomePageComponents/CourseSection'
 import Testimonial from '../Components/HomePageComponents/Testimonial'
-import NeedHelp from '../Components/HomePageComponents/NeedHelp'
 
 const Home = () => {
   return (
@@ -17,7 +16,6 @@ const Home = () => {
       <WhyChooseUs />
       <CourseSection />
       <Testimonial />
-      <NeedHelp />
       <Footer />
     </>
   )

@@ -25,7 +25,7 @@ const courses = [
 
 const CourseSection = () => {
   return (
-    <section className="bg-gray-50 py-10 px-6">
+    <section className="py-10 px-6">
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">

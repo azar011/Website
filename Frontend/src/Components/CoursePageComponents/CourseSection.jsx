@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { myContext } from "../../Context/MyContextProvider";
-// import { coursesData } from "../../assets/assets";
 
 const CourseSection = () => {
 
