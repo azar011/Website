@@ -115,13 +115,20 @@ const ContactForm = () => {
                   Phone Number <span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="number"
+                  type="tel"
                   className="w-full border-b border-gray-300 focus:outline-none py-2"
                   placeholder="Your Phone Number"
                   value={contactEnquiryNumber}
-                  onChange={(e) => setContactEnquiryNumber(e.target.value)}
+                  maxLength={10}
+                  onChange={(e) => {
+                    const val = e.target.value.replace(/\D/g, "");
+                    if (val.length <= 10) setContactEnquiryNumber(val);
+                  }}
                 />
+
                 {contactEnquirySubmitted && !contactEnquiryNumber && <p className="text-red-500 text-sm">* Phone number is required</p>}
+
+                {contactEnquirySubmitted && contactEnquiryNumber.length > 0 && contactEnquiryNumber.length !== 10 && <p className="text-red-500 text-sm">* Phone number must be 10 digits</p>}
               </div>
 
               <div>

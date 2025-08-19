@@ -20,18 +20,23 @@ const MyContextProvider = ({ children }) => {
     const [serviceDescription, setSeriviceDescription] = useState("");
     const [serviceFeatures, setSeriviceFeatures] = useState([]);
 
+    // Service
+
     // Add new feature
+
     const addServiceFeature = () => {
         setSeriviceFeatures([...serviceFeatures, ""]);
     };
 
     // Remove a feature by index
+
     const removeServiceFeature = (index) => {
         const updated = serviceFeatures.filter((_, i) => i !== index);
         setSeriviceFeatures(updated);
     };
 
     // Update feature text
+
     const updateServiceFeature = (index, value) => {
         const updated = [...serviceFeatures];
         updated[index] = value;
@@ -78,6 +83,23 @@ const MyContextProvider = ({ children }) => {
             toast.error("Failed to Add Service");
         }
     };
+
+    useEffect(() => {
+        if (!serviceOldPrice || !serviceNewPrice) {
+            setSeriviceDiscount("");
+            return;
+        }
+
+        const oldP = parseFloat(serviceOldPrice);
+        const newP = parseFloat(serviceNewPrice);
+
+        if (oldP > 0 && newP >= 0 && newP <= oldP) {
+            const discount = ((oldP - newP) / oldP) * 100;
+            setSeriviceDiscount(Math.round(discount) + "%");
+        } else {
+            setSeriviceDiscount("");
+        }
+    }, [serviceOldPrice, serviceNewPrice]);
 
     // Service List
 
@@ -184,7 +206,24 @@ const MyContextProvider = ({ children }) => {
         }
     }
 
-    // Contact Enquiry 
+    useEffect(() => {
+        if (!updateServiceOldPrice || !updateServiceNewPrice) {
+            setUpdateServiceDiscount("");
+            return;
+        }
+    
+        const oldP = parseFloat(updateServiceOldPrice);
+        const newP = parseFloat(updateServiceNewPrice);
+    
+        if (oldP > 0 && newP >= 0 && newP <= oldP) {
+            const discount = ((oldP - newP) / oldP) * 100;
+            setUpdateServiceDiscount(Math.round(discount) + "%");
+        }else {
+            setUpdateServiceDiscount("");
+        }
+    }, [updateServiceOldPrice, updateServiceNewPrice, setUpdateServiceDiscount]);
+
+    // Contact Enquiry List
 
     const [ contactEnquiryData, setContactEnquiryData ] = useState([])
 
@@ -200,6 +239,128 @@ const MyContextProvider = ({ children }) => {
 
     useEffect(() => {
         fetchContactEnquiryData()
+    }, [])
+
+    // Contact Enquiry Delete
+
+    const deleteContactEnquiryFun = (contactEnquiryID) => {
+        toast.info(
+            <div className="flex flex-col gap-3">
+                <span className="font-semibold">Are you sure you want to delete this Enquiry?</span>
+                <div className="flex gap-2">
+                    <button
+                        onClick={async () => {
+                        try {
+                            await axios.delete(`${url}/contactenquiry/deletecontactenquiry/${contactEnquiryID}`);
+                            toast.success("Contact Enquiry Deleted Successfully...", {
+                            autoClose: 1500,
+                            });
+                            setTimeout(() => {
+                            window.location.reload();
+                            }, 2000);
+                        } 
+                        catch (err) {
+                            toast.dismiss();
+                            toast.error("Failed to Delete Contact Enquiry");
+                        }}}
+                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">
+                        Yes
+                    </button>
+                    <button onClick={() => toast.dismiss()} className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-3 py-1 rounded-md">
+                        No
+                    </button>
+                </div>
+            </div>,
+            { autoClose: false, closeOnClick: false }
+        );
+    }
+
+    // Contact Enquiry Status
+
+    const updateContactEnquiryStatusFun = async (contactEnquiryID, newStatus) => {
+        try {
+            await axios.put(`${url}/contactenquiry/updatecontactenquiry/${contactEnquiryID}`, {
+                contactEnquiryStatus: newStatus,
+            });
+            
+            setContactEnquiryData((prev) =>
+                prev.map((item) =>
+                    item._id === contactEnquiryID ? { ...item, contactEnquiryStatus: newStatus } : item
+                )
+            );
+            toast.success("Status updated successfully", { autoClose: 1500 });
+        } catch (err) {
+            toast.error("Failed to update status");
+            console.log(`Error Name : ${err.name}, Error Message : ${err.message}`);
+        }
+    };
+
+    // Course
+
+    const [ courseName, setCourseName ] = useState("");
+    const [ courseDescription, setCourseDescription ] = useState("");
+    const [ courseTopicsCount, setCourseTopicsCount ] = useState("");
+    const [ courseHours, setCourseHours ] = useState("");
+    const [ courseAbout, setCourseAbout ] = useState("");
+    const [ courseYouLearn, setCourseYouLearn ] = useState([]);
+
+    // Course Add Fun 
+
+    const courseAddFun = async (e) => {
+        e.preventDefault();
+        try {
+            const courseFormData = {
+                courseName,
+                courseDescription,
+                courseTopicsCount,
+                courseHours,
+                courseAbout,
+                courseYouLearn
+            };
+        
+            await axios.post(`${url}/course/addcourse`, courseFormData);
+            toast.success("Course Added Successfully...");
+        } 
+        catch (err) {
+            console.log(`Error Name : ${err.name}, Error Message : ${err.message}`);
+            toast.error("Failed to Add Course");
+        }
+    };
+
+    // Add new input field
+    const addLearnPoint = () => {
+        setCourseYouLearn([...courseYouLearn, ""]);
+    };
+
+    // Remove input field
+    const removeLearnPoint = (index) => {
+        const updated = courseYouLearn.filter((_, i) => i !== index);
+        setCourseYouLearn(updated);
+    };
+
+    // Update input value
+    const updateLearnPoint = (index, value) => {
+        const updated = [...courseYouLearn];
+        updated[index] = value;
+        setCourseYouLearn(updated);
+    };
+
+    // Get Courses 
+
+    const [ courseData, setCourseData ] = useState([])
+
+    const fetchCourseData = async () => {
+        try{
+            const courseList = await axios.get(`${url}/course/getcourse`)
+            setCourseData(courseList.data)
+        }
+        catch(err){
+            console.log(`Error Name : ${err.name}, Error Message : ${err.message}`);
+        }
+    }
+
+    useEffect(() => {
+        fetchCourseData()
     }, [])
 
     const myContextValue = {
@@ -235,7 +396,22 @@ const MyContextProvider = ({ children }) => {
 
         serviceUpdateFun,
 
-        contactEnquiryData
+        contactEnquiryData,
+        deleteContactEnquiryFun,
+        updateContactEnquiryStatusFun,
+
+        courseAddFun,
+
+        courseName, setCourseName,
+        courseDescription, setCourseDescription,
+        courseTopicsCount, setCourseTopicsCount,
+        courseHours, setCourseHours,
+        courseAbout, setCourseAbout,
+        courseYouLearn, setCourseYouLearn,
+
+        updateLearnPoint, removeLearnPoint, addLearnPoint,
+
+        courseData
 
     };
 
