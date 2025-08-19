@@ -140,10 +140,10 @@ const MyContextProvider = ({ children }) => {
                             toast.dismiss();
                             toast.error("Failed to Delete Service");
                         }}}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">
+                        className="cursor-pointer bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">
                         Yes
                     </button>
-                    <button onClick={() => toast.dismiss()} className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-3 py-1 rounded-md">
+                    <button onClick={() => toast.dismiss()} className="cursor-pointer bg-gray-300 hover:bg-gray-400 text-gray-800 px-3 py-1 rounded-md">
                         No
                     </button>
                 </div>
@@ -263,10 +263,10 @@ const MyContextProvider = ({ children }) => {
                             toast.dismiss();
                             toast.error("Failed to Delete Contact Enquiry");
                         }}}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">
+                        className="cursor-pointer bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">
                         Yes
                     </button>
-                    <button onClick={() => toast.dismiss()} className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-3 py-1 rounded-md">
+                    <button onClick={() => toast.dismiss()} className="cursor-pointer bg-gray-300 hover:bg-gray-400 text-gray-800 px-3 py-1 rounded-md">
                         No
                     </button>
                 </div>
@@ -320,6 +320,13 @@ const MyContextProvider = ({ children }) => {
         
             await axios.post(`${url}/course/addcourse`, courseFormData);
             toast.success("Course Added Successfully...");
+
+            setCourseName('')
+            setCourseDescription('')
+            setCourseTopicsCount('')
+            setCourseHours('')
+            setCourseAbout('')
+            setCourseYouLearn([''])
         } 
         catch (err) {
             console.log(`Error Name : ${err.name}, Error Message : ${err.message}`);
@@ -363,6 +370,100 @@ const MyContextProvider = ({ children }) => {
         fetchCourseData()
     }, [])
 
+    const [expandedCourse, setExpandedCourse] = useState(null);
+
+    const toggleExpand = (id) => {
+        setExpandedCourse(expandedCourse === id ? null : id);
+    };
+
+    // Course Delete Fun 
+
+    const courseDeleteFun = async (courseID) => {
+        toast.info(
+            <div className="flex flex-col gap-3">
+                <span className="font-semibold">Are you sure you want to delete?</span>
+                <div className="flex gap-2">
+                    <button
+                        onClick={async () => {
+                        try {
+                            await axios.delete(`${url}/course/deletecourse/${courseID}`)
+                            toast.success("Course Deleted Successfully...", {
+                            autoClose: 1500,
+                            });
+                            setTimeout(() => {
+                            window.location.reload();
+                            }, 2000);
+                        } 
+                        catch (err) {
+                            toast.dismiss();
+                            toast.error("Failed to Delete Course");
+                        }}}
+                        className="cursor-pointer bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">
+                        Yes
+                    </button>
+                    <button onClick={() => toast.dismiss()} className="cursor-pointer bg-gray-300 hover:bg-gray-400 text-gray-800 px-3 py-1 rounded-md">
+                        No
+                    </button>
+                </div>
+            </div>,
+            { autoClose: false, closeOnClick: false }
+        );
+    };
+
+    // Contact Update 
+
+    const [ updateCourseName, setUpdateCourseName ] = useState("");
+    const [ updateCourseDescription, setUpdateCourseDescription ] = useState("");
+    const [ updateCourseTopicsCount, setUpdateCourseTopicsCount ] = useState("");
+    const [ updateCourseHours, setUpdateCourseHours ] = useState("");
+    const [ updateCourseAbout, setUpdateCourseAbout ] = useState("");
+    const [ updateCourseYouLearn, setUpdateCourseYouLearn ] = useState([]);
+
+    const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
+
+    const [ updateCourseID, setUpdateCourseID ] = useState('')
+
+    const courseModelFun = (courseID) => {
+        const course = courseData.find((a) => a._id === courseID)
+
+        if (course) {
+            setUpdateCourseName(course.courseName);
+            setUpdateCourseDescription(course.courseDescription);
+            setUpdateCourseTopicsCount(course.courseTopicsCount);
+            setUpdateCourseHours(course.courseHours);
+            setUpdateCourseAbout(course.courseAbout);
+            setUpdateCourseYouLearn([...course.courseYouLearn]); 
+            setUpdateCourseID(course._id)
+        }
+
+        setIsCourseModalOpen(true);
+    }
+
+    const courseUpdateFun = async (e) => {
+        try{
+            e.preventDefault()
+
+            const updateCourseData = {
+                courseName : updateCourseName,
+                courseDescription : updateCourseDescription,
+                courseTopicsCount : updateCourseTopicsCount,
+                courseHours : updateCourseHours,
+                courseAbout : updateCourseAbout,
+                courseYouLearn : updateCourseYouLearn
+            }
+
+            await axios.put(`${url}/course/updatecourse/${updateCourseID}`, updateCourseData)
+            toast.success("Course updated successfully!", { autoClose: 2000 });
+            setIsCourseModalOpen(false);
+
+            fetchCourseData();
+        }
+        catch(err){
+            console.log(`Error Name : ${err.name}, Error Message : ${err.message}`);
+            toast.error("Failed to Update Course");
+        }
+    }
+
     const myContextValue = {
         serviceTitle,
         setSeriviceTitle,
@@ -400,7 +501,7 @@ const MyContextProvider = ({ children }) => {
         deleteContactEnquiryFun,
         updateContactEnquiryStatusFun,
 
-        courseAddFun,
+        courseData, courseAddFun,
 
         courseName, setCourseName,
         courseDescription, setCourseDescription,
@@ -411,7 +512,16 @@ const MyContextProvider = ({ children }) => {
 
         updateLearnPoint, removeLearnPoint, addLearnPoint,
 
-        courseData
+        isCourseModalOpen, setIsCourseModalOpen,
+
+        updateCourseName, setUpdateCourseName,
+        updateCourseDescription, setUpdateCourseDescription,
+        updateCourseTopicsCount, setUpdateCourseTopicsCount,
+        updateCourseHours, setUpdateCourseHours,
+        updateCourseAbout, setUpdateCourseAbout,
+        updateCourseYouLearn, setUpdateCourseYouLearn,
+
+        courseModelFun, toggleExpand, expandedCourse, courseUpdateFun
 
     };
 
