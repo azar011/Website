@@ -2,21 +2,21 @@ import React from "react";
 
 const testimonials = [
   {
-    name: "Priya S.",
+    name: "Priya S",
     role: "Full Stack Developer",
     feedback:
-      "The training was excellent! The instructors explained concepts clearly and gave real-world examples. I was able to crack my interviews confidently.",
+      "The training was excellent! The instructors explained concepts clearly and gave real-world examples.",
     image: "https://i.pravatar.cc/100?img=5",
   },
   {
-    name: "Rahul M.",
+    name: "Rahul M",
     role: "Data Analyst",
     feedback:
       "Great learning experience! The hands-on projects helped me apply what I learned. The support from mentors was amazing.",
     image: "https://i.pravatar.cc/100?img=12",
   },
   {
-    name: "Anjali K.",
+    name: "Anjali K",
     role: "MERN Stack Developer",
     feedback:
       "I loved the practical approach of teaching. The course helped me understand AI & ML in depth and boosted my confidence.",
@@ -56,3 +56,4 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
+
