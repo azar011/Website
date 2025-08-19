@@ -15,7 +15,6 @@ const AddCourse = () => {
     courseAbout,
     setCourseAbout,
     courseYouLearn,
-    setCourseYouLearn,
     updateLearnPoint,
     removeLearnPoint,
     addLearnPoint,
@@ -52,7 +51,7 @@ const AddCourse = () => {
         {/* About */}
         <div>
           <label className="block mb-1 font-medium">About</label>
-          <textarea value={courseAbout} onChange={(e) => setCourseAbout(e.target.value)} className="w-full p-2 border rounded-lg" />
+          <textarea value={courseAbout} required onChange={(e) => setCourseAbout(e.target.value)} className="w-full p-2 border rounded-lg" />
         </div>
 
         {/* What You Will Learn */}
@@ -60,7 +59,7 @@ const AddCourse = () => {
           <label className="block font-medium">What You Will Learn</label>
           {courseYouLearn.map((value, index) => (
             <div key={index} className="flex items-center gap-2 mb-2">
-              <input type="text" value={value} onChange={(e) => updateLearnPoint(index, e.target.value)} className="w-full border rounded-lg p-2" required />
+              <input type="text" required value={value} onChange={(e) => updateLearnPoint(index, e.target.value)} className="w-full border rounded-lg p-2" />
               {courseYouLearn.length > 1 && (
                 <button type="button" onClick={() => removeLearnPoint(index)} className="bg-red-500 text-white px-2 py-1 rounded">
                   ✕
