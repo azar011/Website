@@ -1,10 +1,12 @@
-const express = require('express')
-const courseRouter = express.Router()
+const express = require("express");
+const courseRouter = express.Router();
 
-const { addCourse, getCourse, deleteCourse, updateCourse } = require('../controllers/courseControllers')
-courseRouter.post('/addcourse', addCourse)
-courseRouter.get('/getcourse', getCourse)
-courseRouter.delete('/deletecourse/:id', deleteCourse)
-courseRouter.put('/updatecourse/:id', updateCourse)
+const { addCourse, getCourse, deleteCourse, updateCourse } = require("../controllers/courseControllers");
+const upload = require("../middleware/multerConfig");
 
-module.exports = courseRouter
+courseRouter.post("/addcourse", upload.single("courseImg"), addCourse);
+courseRouter.get("/getcourse", getCourse);
+courseRouter.delete("/deletecourse/:id", deleteCourse);
+courseRouter.put("/updatecourse/:id", upload.single("courseImg"), updateCourse);
+
+module.exports = courseRouter;

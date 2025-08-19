@@ -21,6 +21,8 @@ app.use('/contactenquiry', contactEnquiryRouter)
 const courseRouter = require("./routes/courseRoutes");
 app.use('/course', courseRouter)
 
+app.use("/uploads", express.static("uploads"));
+
 app.listen(process.env.PORT, () => {
     console.log(`Server Running on PORT ${process.env.PORT}`)
 })

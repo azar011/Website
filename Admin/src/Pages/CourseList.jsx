@@ -6,6 +6,8 @@ const CourseList = () => {
 
     const { courseData } = useContext(myContext)
 
+    console.log(courseData);
+
   return (
     <div className="p-3">
       <h2 className="text-3xl font-bold text-blue-700 mb-6 text-center">Our Services</h2>
@@ -33,15 +35,15 @@ const CourseList = () => {
                 <td className="p-3 text-gray-800">{value.courseAbout}</td>
                 <td className="p-3 text-gray-800">{value.courseYouLearn}</td>
                 <td className="p-3">
-                  <ul className="space-y-1">
+                  {/* <ul className="space-y-1">
                     {value.serviceFeatures.map((feature, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-gray-800">
                         <FaCheckCircle className="text-green-500" />
                         {feature}
                       </li>
                     ))}
-                  </ul>
-                </td>
+                  </ul> */}
+                </td> 
                 <td className="p-3 text-center">
                   <button onClick={() => serviceModalFun(value._id)} className="cursor-pointer flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-md shadow-md">
                     <FaEdit /> Update
