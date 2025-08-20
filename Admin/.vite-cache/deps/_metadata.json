@@ -1,65 +1,74 @@
 {
-  "hash": "bc2029de",
-  "configHash": "4527d852",
+  "hash": "c02ce34c",
+  "configHash": "2b557fc6",
   "lockfileHash": "f4e07b44",
-  "browserHash": "da689e68",
+  "browserHash": "6ba8c31b",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "f2cba854",
+      "fileHash": "0aa62c14",
       "needsInterop": true
     },
     "react-dom": {
       "src": "../../node_modules/react-dom/index.js",
       "file": "react-dom.js",
-      "fileHash": "f0b04a9e",
+      "fileHash": "04ae344d",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "8f9056c2",
+      "fileHash": "ae9b1a60",
       "needsInterop": true
     },
     "react/jsx-runtime": {
       "src": "../../node_modules/react/jsx-runtime.js",
       "file": "react_jsx-runtime.js",
-      "fileHash": "57e2b41f",
+      "fileHash": "3bcda562",
       "needsInterop": true
     },
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "c495f8c3",
+      "fileHash": "01ffb03e",
       "needsInterop": false
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "cb18d604",
+      "fileHash": "4143e8c4",
       "needsInterop": true
     },
     "react-icons/fa": {
       "src": "../../node_modules/react-icons/fa/index.mjs",
       "file": "react-icons_fa.js",
-      "fileHash": "cb5c8e08",
+      "fileHash": "1b4a9d76",
       "needsInterop": false
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.mjs",
       "file": "react-router-dom.js",
-      "fileHash": "9fa8b546",
+      "fileHash": "bb592109",
       "needsInterop": false
     },
     "react-toastify": {
       "src": "../../node_modules/react-toastify/dist/index.mjs",
       "file": "react-toastify.js",
-      "fileHash": "6de7000d",
+      "fileHash": "89c4c84c",
+      "needsInterop": false
+    },
+    "react-icons/md": {
+      "src": "../../node_modules/react-icons/md/index.mjs",
+      "file": "react-icons_md.js",
+      "fileHash": "e74c9346",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-SGLBH52P": {
+      "file": "chunk-SGLBH52P.js"
+    },
     "chunk-PFG2UKEP": {
       "file": "chunk-PFG2UKEP.js"
     },

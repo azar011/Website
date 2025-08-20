@@ -20,60 +20,10 @@ const AddCourse = () => {
     updateLearnPoint,
     removeLearnPoint,
     addLearnPoint,
+    courseAddFun,
+    courseImgPreview,
+    handleCourseImgChange
   } = useContext(myContext);
-
-  const url = "http://localhost:5000"; // your backend url
-
-  const [courseImgFile, setCourseImgFile] = useState(null);
-  const [courseImgPreview, setCourseImgPreview] = useState(null);
-
-  // handle file select
-  const handleCourseImgChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setCourseImgFile(file);
-      setCourseImgPreview(URL.createObjectURL(file));
-    }
-  };
-
-  // submit function
-    const courseAddFun = async (e) => {
-    e.preventDefault();
-    try {
-      const formData = new FormData();
-      formData.append("courseName", courseName);
-      formData.append("courseDescription", courseDescription);
-      formData.append("courseTopicsCount", courseTopicsCount);
-      formData.append("courseHours", courseHours);
-      formData.append("courseAbout", courseAbout);
-      formData.append("courseYouLearn", JSON.stringify(courseYouLearn));
-
-      if (courseImgFile) {
-        formData.append("courseImg", courseImgFile);
-      }
-
-      await axios.post(`${url}/course/addcourse`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-
-      toast.success("Course Added Successfully...");
-
-      // ✅ reset all states
-      setCourseName("");
-      setCourseDescription("");
-      setCourseTopicsCount("");
-      setCourseHours("");
-      setCourseAbout("");
-      setCourseYouLearn([""]); // keep one empty input field
-      setCourseImgFile(null);
-      setCourseImgPreview(null);
-
-    } catch (err) {
-      console.log(`Error: ${err.message}`);
-      toast.error("Failed to Add Course");
-    }
-  };
-
 
   return (
     <div className="max-w-2xl bg-white p-6 rounded-2xl shadow-md">
@@ -84,12 +34,13 @@ const AddCourse = () => {
           <label className="block mb-1 font-medium">Course Image</label>
           <input
             type="file"
-            id="courseImg"
+            id="courseImage"
             hidden
+            required
             onChange={handleCourseImgChange}
           />
 
-          <label htmlFor="courseImg" className="cursor-pointer">
+          <label htmlFor="courseImage" className="cursor-pointer">
             {courseImgPreview ? (
               <img
                 src={courseImgPreview}
@@ -162,8 +113,8 @@ const AddCourse = () => {
             value={courseAbout}
             onChange={(e) => setCourseAbout(e.target.value)}
             className="w-full p-2 border rounded-lg"
+            required
           />
-          <textarea value={courseAbout} required onChange={(e) => setCourseAbout(e.target.value)} className="w-full p-2 border rounded-lg" />
         </div>
 
         {/* What You Will Learn */}
@@ -178,7 +129,6 @@ const AddCourse = () => {
                 className="w-full border rounded-lg p-2"
                 required
               />
-              <input type="text" required value={value} onChange={(e) => updateLearnPoint(index, e.target.value)} className="w-full border rounded-lg p-2" />
               {courseYouLearn.length > 1 && (
                 <button
                   type="button"

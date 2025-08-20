@@ -3,19 +3,22 @@ import { myContext } from "../../Context/MyContextProvider";
 
 const CourseSection = () => {
 
-  const { courseData } = useContext(myContext)
+  const { courseData, url } = useContext(myContext)
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto p-8">
       <h2 className="text-3xl font-bold text-center mb-8">Our Courses</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {courseData.map((value, index) => (
           <div
             key={index}
             className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition-transform duration-300 hover:shadow-[0_0_20px_silver]">
-            <a href="#">
-              {/* <img className="rounded-t-lg w-full h-48 object-cover" src={course.courseImg} alt={course.courseName} /> */}
-            </a>
+            <img
+  className="rounded-t-lg w-full h-48 object-cover"
+  src={value.courseImage ? `${url}/uploads/${value.courseImage}` : ''}
+  alt={value.courseName}
+/>
+
             <div className="p-5">
               <a href="#">
                 <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{value.courseName}</h5>
