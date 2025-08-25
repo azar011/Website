@@ -11,12 +11,14 @@ import WpIcon from "./Components/CommonComponents/WpIcon";
 import CourseDetails from "./Components/CoursePageComponents/CourseDetails";
 import MyContextProvider from "./Context/MyContextProvider";
 import { ToastContainer } from "react-toastify";
+import ScrollToTop from "./Pages/ScrollToTop";
 
 const App = () => {
   return (
     <>
       <ToastContainer />
       <BrowserRouter>
+        <ScrollToTop />
         <MyContextProvider>
           <Routes>
             <Route path="/" element={<Home />} />

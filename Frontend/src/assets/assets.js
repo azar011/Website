@@ -1,4 +1,9 @@
 import courseImg1 from './images/image.png'
+import ViteCodeLogo from './images/ViteCodeLogo.png'
+
+export const images = {
+  ViteCodeLogo
+}
 
 export const coursesData = [
   {

@@ -31,7 +31,7 @@ const CourseList = () => {
 
   return (
     <div className="p-5">
-      <h2 className="text-3xl font-bold text-blue-700 mb-6 text-center">Our Courses List</h2>
+      <h2 className="text-3xl font-bold text-blue-700 mb-6 text-center">Our Courses</h2>
 
       {courseData.length === 0 ? (
         <p className="text-red-600 font-bold text-center">No Course Found</p>
