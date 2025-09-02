@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { myContext } from "../../Context/MyContextProvider";
 
 const CourseSection = () => {
-
-  const { courseData, url } = useContext(myContext)
+  const { courseData, url } = useContext(myContext);
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto p-8">
@@ -13,11 +12,7 @@ const CourseSection = () => {
           <div
             key={index}
             className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition-transform duration-300 hover:shadow-[0_0_20px_silver]">
-            <img
-  className="rounded-t-lg w-full h-48 object-cover"
-  src={value.courseImage ? `${url}/uploads/${value.courseImage}` : ''}
-  alt={value.courseName}
-/>
+            <img className="rounded-t-lg w-full h-48 object-cover" src={value.courseImage ? `${url}/uploads/${value.courseImage}` : ""} alt={value.courseName} />
 
             <div className="p-5">
               <a href="#">

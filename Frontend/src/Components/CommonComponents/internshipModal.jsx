@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 
 const InternshipModal = ({ isOpen, onClose }) => {
-    const [selectedOption, setSelectedOption] = useState("Python Full Stack");
+    const [selectedOption, setSelectedOption] = useState("Web Development");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");

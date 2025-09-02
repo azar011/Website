@@ -62,8 +62,6 @@ const AddService = () => {
         </div>
         </div>
 
-        
-
         {/* Description */}
         <div>
           <label className="block font-medium">Description</label>
