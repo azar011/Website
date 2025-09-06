@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FiPhone, FiMail } from "react-icons/fi";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { images } from "../../assets/assets";
+import InternshipModal from "./internshipModal";
+
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const linkClasses = (path) =>
-    `block py-2 px-3 md:p-0 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent hover:text-blue dark:border-gray-700  ${
-      location.pathname === path
-        ? "text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-        : "text-gray-900 dark:text-white"
+    `block py-2 px-3 md:p-0 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-500 
+    dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent hover:text-blue dark:border-gray-700  
+    ${location.pathname === path
+      ? "text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+      : "text-gray-900 dark:text-white"
     }`;
 
   return (
     <>
       {/* Top Header */}
-       <div className="bg-gray-900 lg:block md:block hidden">
+      <div className="bg-gray-900 lg:block md:block hidden">
         <div className="max-w-screen-xl py-2 px-4 mx-auto flex flex-col sm:flex-row sm:justify-between sm:items-center text-white text-sm space-y-2 sm:space-y-0">
           {/* Left side: Phone & Email */}
           <div className="flex flex-row justify-between sm:items-center sm:space-x-6 space-y-1 sm:space-y-0 text-center sm:text-left">
@@ -37,45 +42,42 @@ const Header = () => {
 
           {/* Right side: Social Icons */}
           <div className="flex justify-center sm:justify-end items-center space-x-4">
-            <a href="#" className="hover:text-blue-700">
-              <FaFacebookF />
-            </a>
-            <a href="#" className="hover:text-blue-700">
-              <FaInstagram />
-            </a>
-            <a href="#" className="hover:text-blue-400">
-              <FaXTwitter />
-            </a>
-            <a href="#" className="hover:text-blue-700">
-              <FaYoutube />
-            </a>
+            <a href="#" className="hover:text-blue-700"><FaFacebookF /></a>
+            <a href="#" className="hover:text-blue-700"><FaInstagram /></a>
+            <a href="#" className="hover:text-blue-400"><FaXTwitter /></a>
+            <a href="#" className="hover:text-blue-700"><FaYoutube /></a>
           </div>
         </div>
       </div>
 
       {/* Main Navbar */}
       <nav className="bg-white border-gray-200 dark:bg-gray-900 sticky top-0 z-50 shadow-lg">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8"
-              alt="Flowbite Logo"
-            />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+          <a href="/" className="flex items-center rtl:space-x-reverse">
+            <img src={images.ViteCodeLogo} alt="Logo Image" className="h-8 block md:hidden lg:hidden" />
+            <img src={images.ViteCodeLogo} alt="Logo Image" className="h-12 hidden md:block lg:block" />
+            <span className="self-center text-xl  font-semibold whitespace-nowrap dark:text-white">
               ViteCode
             </span>
           </a>
 
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            {/* Internship Button */}
             <button
               type="button"
+              onClick={() => setIsModalOpen(true)}
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none 
               focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center 
               dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Internship !
             </button>
+
+            {/* Internship Modal */}
+            <InternshipModal
+              isOpen={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
+            />
 
             {/* Mobile Menu Button */}
             <button
@@ -119,18 +121,8 @@ const Header = () => {
               rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 
               md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
             >
-              <li>
-                <a href="/" className={`${linkClasses("/")} hover:text-blue-700`}>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/about" className={`${linkClasses("/about")} hover:text-blue-700`}>
-                  About
-                </a>
-              </li>
-
-              {/* Hover Dropdown */}
+              <li><a href="/" className={`${linkClasses("/")} hover:text-blue-700`}>Home</a></li>
+              <li><a href="/about" className={`${linkClasses("/about")} hover:text-blue-700`}>About</a></li>
               <li className="relative group">
                 <button
                   onClick={() => navigate("/course")}
@@ -148,59 +140,19 @@ const Header = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-
                 <div
                   className="absolute hidden group-hover:block bg-white dark:bg-gray-800 shadow-lg 
                   rounded-md w-65 py-3 z-50"
                 >
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 
-                    dark:text-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Data Science
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 
-                    dark:text-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Web Design
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 
-                    dark:text-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Web Development
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 
-                    dark:text-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Frontend Web Development
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 
-                    dark:text-gray-200 dark:hover:bg-gray-700"
-                  >
-                    Full Stack Web Development
-                  </a>
+                  <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Data Science</a>
+                  <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Web Design</a>
+                  <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Web Development</a>
+                  <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Frontend Web Development</a>
+                  <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Full Stack Web Development</a>
                 </div>
               </li>
-
-              <li>
-                <a href="/service" className={`${linkClasses("/service")} hover:text-blue-700`}>
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className={`${linkClasses("/contact")} hover:text-blue-700`}>
-                  Contact
-                </a>
-              </li>
+              <li><a href="/service" className={`${linkClasses("/service")} hover:text-blue-700`}>Services</a></li>
+              <li><a href="/contact" className={`${linkClasses("/contact")} hover:text-blue-700`}>Contact</a></li>
             </ul>
           </div>
         </div>

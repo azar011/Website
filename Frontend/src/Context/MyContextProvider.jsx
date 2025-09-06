@@ -107,6 +107,8 @@ const MyContextProvider = ({children}) => {
 
     const myContextValue = {
 
+        url,
+
         serviceData,
 
         contactEnquiryName, setContactEnquiryName, 

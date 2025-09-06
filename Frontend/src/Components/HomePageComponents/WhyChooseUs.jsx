@@ -26,12 +26,12 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="bg-gray-50 relative lg:py-25 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+    <section className="bg-gray-50  relative lg:py-25 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       {/* Background Shapes */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
 
-      <div className="relative container mx-auto px-6 py-8 lg:py-0 text-center">
+      <div className="relative  max-w-7xl container mx-auto px-6 py-8 lg:py-0 text-center">
         {/* Heading */}
         <h2 className="text-5xl hidden lg:block md:block font-bold mb-4 text-gray-900">
           Why <span className="text-blue-600">Choose Us?</span>

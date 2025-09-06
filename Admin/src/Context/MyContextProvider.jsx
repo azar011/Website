@@ -304,29 +304,63 @@ const MyContextProvider = ({ children }) => {
     const [ courseAbout, setCourseAbout ] = useState("");
     const [ courseYouLearn, setCourseYouLearn ] = useState([]);
 
+    const [courseImgFile, setCourseImgFile] = useState(null);
+    const [courseImgPreview, setCourseImgPreview] = useState(null);
+
     // Course Add Fun 
+
+    // handle file select
+    const handleCourseImgChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setCourseImgFile(file);
+            setCourseImgPreview(URL.createObjectURL(file));
+        }
+    };
 
     const courseAddFun = async (e) => {
         e.preventDefault();
         try {
-            const courseFormData = {
-                courseName,
-                courseDescription,
-                courseTopicsCount,
-                courseHours,
-                courseAbout,
-                courseYouLearn
-            };
-        
-            await axios.post(`${url}/course/addcourse`, courseFormData);
-            toast.success("Course Added Successfully...");
+            const formData = new FormData();
+            formData.append("courseName", courseName);
+            formData.append("courseDescription", courseDescription);
+            formData.append("courseTopicsCount", courseTopicsCount);
+            formData.append("courseHours", courseHours);
+            formData.append("courseAbout", courseAbout);
 
-            setCourseName('')
-            setCourseDescription('')
-            setCourseTopicsCount('')
-            setCourseHours('')
-            setCourseAbout('')
-            setCourseYouLearn([''])
+            // append array properly
+            courseYouLearn.forEach((point) => {
+                formData.append("courseYouLearn", point);
+            });
+
+            if (courseImgFile) {
+                formData.append("courseImage", courseImgFile);
+            }
+
+            await axios.post(`${url}/course/addcourse`, formData, {
+                headers: { "Content-Type": "multipart/form-data" },
+            });
+
+            toast.success("Course Added Successfully...",
+            {
+                autoClose: 1500,
+            });
+            
+            navigate("/courselist");
+
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+
+            setCourseName("");
+            setCourseDescription("");
+            setCourseTopicsCount("");
+            setCourseHours("");
+            setCourseAbout("");
+            setCourseYouLearn([""]); 
+            setCourseImgFile(null);
+            setCourseImgPreview(null);
+
         } 
         catch (err) {
             console.log(`Error Name : ${err.name}, Error Message : ${err.message}`);
@@ -410,7 +444,7 @@ const MyContextProvider = ({ children }) => {
         );
     };
 
-    // Contact Update 
+    // Course Update 
 
     const [ updateCourseName, setUpdateCourseName ] = useState("");
     const [ updateCourseDescription, setUpdateCourseDescription ] = useState("");
@@ -418,6 +452,16 @@ const MyContextProvider = ({ children }) => {
     const [ updateCourseHours, setUpdateCourseHours ] = useState("");
     const [ updateCourseAbout, setUpdateCourseAbout ] = useState("");
     const [ updateCourseYouLearn, setUpdateCourseYouLearn ] = useState([]);
+    const [updateCourseImage, setUpdateCourseImage] = useState(null);
+    const [updateCourseImagePreview, setUpdateCourseImagePreview] = useState(null);
+
+    const handleUpdateCourseImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setUpdateCourseImage(file);
+            setUpdateCourseImagePreview(URL.createObjectURL(file));
+        }
+    };
 
     const [isCourseModalOpen, setIsCourseModalOpen] = useState(false);
 
@@ -440,31 +484,64 @@ const MyContextProvider = ({ children }) => {
     }
 
     const courseUpdateFun = async (e) => {
-        try{
-            e.preventDefault()
+        e.preventDefault();
+        try {
+            const formData = new FormData();
+            formData.append("courseName", updateCourseName);
+            formData.append("courseDescription", updateCourseDescription);
+            formData.append("courseTopicsCount", updateCourseTopicsCount);
+            formData.append("courseHours", updateCourseHours);
+            formData.append("courseAbout", updateCourseAbout);
 
-            const updateCourseData = {
-                courseName : updateCourseName,
-                courseDescription : updateCourseDescription,
-                courseTopicsCount : updateCourseTopicsCount,
-                courseHours : updateCourseHours,
-                courseAbout : updateCourseAbout,
-                courseYouLearn : updateCourseYouLearn
+            // ✅ Append each "You Will Learn" item separately
+            updateCourseYouLearn.forEach((point) => {
+                formData.append("courseYouLearn", point);
+            });
+
+            if (updateCourseImage) {
+                formData.append("courseImage", updateCourseImage);
             }
 
-            await axios.put(`${url}/course/updatecourse/${updateCourseID}`, updateCourseData)
-            toast.success("Course updated successfully!", { autoClose: 2000 });
-            setIsCourseModalOpen(false);
+            await axios.put(
+                `${url}/course/updatecourse/${activeCourse._id}`,
+                formData,
+                { headers: { "Content-Type": "multipart/form-data" } }
+            );
 
-            fetchCourseData();
-        }
-        catch(err){
+            toast.success("Course updated successfully");
+            setIsCourseModalOpen(false);
+            setPreview(null);
+            fetchCourseData(); 
+        } 
+        catch (err) {
+            toast.error("Failed to update course");
             console.log(`Error Name : ${err.name}, Error Message : ${err.message}`);
-            toast.error("Failed to Update Course");
         }
-    }
+    };
+
+    const [activeCourse, setActiveCourse] = useState(null);
+    
+    const [preview, setPreview] = useState(null);
+    
+    useEffect(() => {
+        if (isCourseModalOpen && activeCourse?.courseImage) {
+          setPreview(`${url}/uploads/${activeCourse.courseImage}`);
+        }
+        if (!isCourseModalOpen) {
+          setPreview(null);
+          setUpdateCourseImage(null);
+          setActiveCourse(null);
+        }
+    }, [isCourseModalOpen, activeCourse]);
+    
+    const openUpdate = (course) => {
+        setActiveCourse(course);
+        courseModelFun(course._id);
+    };
 
     const myContextValue = {
+
+        url,
         serviceTitle,
         setSeriviceTitle,
         serviceOldPrice,
@@ -501,8 +578,9 @@ const MyContextProvider = ({ children }) => {
         deleteContactEnquiryFun,
         updateContactEnquiryStatusFun,
 
-        courseData, courseAddFun,
+        courseData, courseAddFun, handleCourseImgChange,
 
+        courseImgPreview, 
         courseName, setCourseName,
         courseDescription, setCourseDescription,
         courseTopicsCount, setCourseTopicsCount,
@@ -521,7 +599,8 @@ const MyContextProvider = ({ children }) => {
         updateCourseAbout, setUpdateCourseAbout,
         updateCourseYouLearn, setUpdateCourseYouLearn,
 
-        courseModelFun, toggleExpand, expandedCourse, courseUpdateFun
+        courseModelFun, toggleExpand, expandedCourse, courseUpdateFun,
+        openUpdate, courseDeleteFun, courseUpdateFun, handleUpdateCourseImageChange, updateCourseImagePreview, activeCourse, 
 
     };
 
