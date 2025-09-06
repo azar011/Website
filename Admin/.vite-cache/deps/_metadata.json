@@ -1,61 +1,61 @@
 {
-  "hash": "bc2029de",
-  "configHash": "4527d852",
+  "hash": "9d6f05b3",
+  "configHash": "cdc48e5c",
   "lockfileHash": "f4e07b44",
-  "browserHash": "da689e68",
+  "browserHash": "1dc415e1",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "f2cba854",
+      "fileHash": "a6f91966",
       "needsInterop": true
     },
     "react-dom": {
       "src": "../../node_modules/react-dom/index.js",
       "file": "react-dom.js",
-      "fileHash": "f0b04a9e",
+      "fileHash": "8436bd48",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "8f9056c2",
+      "fileHash": "1a6619fd",
       "needsInterop": true
     },
     "react/jsx-runtime": {
       "src": "../../node_modules/react/jsx-runtime.js",
       "file": "react_jsx-runtime.js",
-      "fileHash": "57e2b41f",
+      "fileHash": "01359834",
       "needsInterop": true
     },
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "c495f8c3",
+      "fileHash": "60470d2c",
       "needsInterop": false
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "cb18d604",
+      "fileHash": "04b96f2e",
       "needsInterop": true
     },
     "react-icons/fa": {
       "src": "../../node_modules/react-icons/fa/index.mjs",
       "file": "react-icons_fa.js",
-      "fileHash": "cb5c8e08",
+      "fileHash": "b64adbc3",
       "needsInterop": false
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.mjs",
       "file": "react-router-dom.js",
-      "fileHash": "9fa8b546",
+      "fileHash": "000e105d",
       "needsInterop": false
     },
     "react-toastify": {
       "src": "../../node_modules/react-toastify/dist/index.mjs",
       "file": "react-toastify.js",
-      "fileHash": "6de7000d",
+      "fileHash": "fae452cf",
       "needsInterop": false
     }
   },
