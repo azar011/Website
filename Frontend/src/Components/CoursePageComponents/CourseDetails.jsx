@@ -36,7 +36,7 @@ const CoursePage = () => {
       icon: "User",
       title: "Your Instructor",
       paragraphs: [
-        "Hi, I’m Anis Fathima. With over 5 years of experience in the software industry, I’ve taught millions of students worldwide through my courses. My teaching style is practical, clear, and focused on real-world skills.",
+        "Hi, I’m Anis Patima. With over 5 years of experience in the software industry, I’ve taught millions of students worldwide through my courses. My teaching style is practical, clear, and focused on real-world skills.",
       ],
     },
     {
