@@ -40,17 +40,23 @@ const ContactForm = () => {
               </h1>
 
               <div className="mt-8 space-y-6">
-                <div className="flex items-center gap-3">
+                <div className="hidden md:flex lg:flex items-center gap-3">
                   <span className="text-blue-400">
                     <HiMail size={28} />
                   </span>
-                  <span>vitecodetech@gmail.com</span>
+                  <a href='mailto:vitecodetechnologies@gmail.com' className="hover:underline">vitecodetechnologies@gmail.com</a>
+                </div>
+                <div className="lg:hidden md:hidden flex items-center gap-3">
+                  <span className="text-blue-400">
+                    <HiMail size={28} />
+                  </span>
+                  <a href='mailto:vitecodetechnologies@gmail.com' className="hover:underline">vitecodetechnologies<br />@gmail.com</a>
                 </div>
                 <div className="flex items-center gap-3 rounded-lg w-fit">
                   <span className="text-blue-400">
                     <HiPhone size={28} />
                   </span>
-                  <span>+91 98765 43210</span>
+                  <a href="tel:9876543210" className="hover:underline">+91 98765 43210</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-blue-400">

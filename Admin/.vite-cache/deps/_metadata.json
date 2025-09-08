@@ -1,67 +1,67 @@
 {
-  "hash": "bc2029de",
-  "configHash": "4527d852",
+  "hash": "c02ce34c",
+  "configHash": "2b557fc6",
   "lockfileHash": "f4e07b44",
-  "browserHash": "6e0fbb25",
+  "browserHash": "7ca09f77",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "c43dfa14",
+      "fileHash": "7648ce9e",
       "needsInterop": true
     },
     "react-dom": {
       "src": "../../node_modules/react-dom/index.js",
       "file": "react-dom.js",
-      "fileHash": "1a368f25",
+      "fileHash": "f2270f86",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "452a7b19",
+      "fileHash": "22698381",
       "needsInterop": true
     },
     "react/jsx-runtime": {
       "src": "../../node_modules/react/jsx-runtime.js",
       "file": "react_jsx-runtime.js",
-      "fileHash": "50a22448",
+      "fileHash": "cccf65dd",
       "needsInterop": true
     },
     "axios": {
       "src": "../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "e924823a",
+      "fileHash": "6c99d70a",
       "needsInterop": false
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "8e874a6d",
+      "fileHash": "e1adbb32",
       "needsInterop": true
     },
     "react-icons/fa": {
       "src": "../../node_modules/react-icons/fa/index.mjs",
       "file": "react-icons_fa.js",
-      "fileHash": "f66de4ba",
+      "fileHash": "550e272d",
       "needsInterop": false
     },
     "react-icons/md": {
       "src": "../../node_modules/react-icons/md/index.mjs",
       "file": "react-icons_md.js",
-      "fileHash": "9ec94341",
+      "fileHash": "ea5636bf",
       "needsInterop": false
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.mjs",
       "file": "react-router-dom.js",
-      "fileHash": "db7321c1",
+      "fileHash": "ed850326",
       "needsInterop": false
     },
     "react-toastify": {
       "src": "../../node_modules/react-toastify/dist/index.mjs",
       "file": "react-toastify.js",
-      "fileHash": "06a94410",
+      "fileHash": "8f61ce30",
       "needsInterop": false
     }
   },

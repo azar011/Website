@@ -34,12 +34,12 @@ const Footer = () => {
             <p className="flex items-center mb-2">
               <FaMapMarkerAlt className="mr-2" /> Trichy, TamilNadu
             </p>
-            <p className="flex items-center mb-2">
+            <a href='tel:9876543210' className="cursor-pointer hover:underline flex items-center mb-2">
               <FaPhoneAlt className="mr-2" /> +91 98765 43210
-            </p>
-            <p className="flex items-center mb-4">
-              <FaEnvelope className="mr-2" /> vitecodetech@gmail.com
-            </p>
+            </a>
+            <a href='mailto:vitecodetechnologies@gmail.com' className="cursor-pointer hover:underline flex items-center mb-4">
+              <FaEnvelope className="mr-2" /> vitecodetechnologies@gmail.com
+            </a>
             <div className="flex space-x-4 text-white">
               <a href="#" className="hover:text-blue-400">
                 <FaFacebookF size={20} />
@@ -67,9 +67,9 @@ const Footer = () => {
                 "Frontend Development",
                 "Full Stack Web Development",
               ].map((course, i) => (
-                <li key={i} className="flex items-center hover:text-blue-400">
+                <a key={i} href='/course' className="flex items-center hover:text-blue-400">
                   <FaAngleRight className="mr-2" /> {course}
-                </li>
+                </a>
               ))}
             </ul>
           </div>
@@ -78,17 +78,21 @@ const Footer = () => {
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 cursor-pointer">
-              {[
-                "Privacy Policy",
-                "Terms & Condition",
-                "Regular FAQs",
-                "Help & Support",
-                "Contact",
-              ].map((link, i) => (
-                <li key={i} className="flex items-center hover:text-blue-400">
-                  <FaAngleRight className="mr-2" /> {link}
-                </li>
-              ))}
+              <a href="#" className="flex items-center hover:text-blue-400">
+                <FaAngleRight className="mr-2" /> Privacy Policy
+              </a>
+              <a href="#" className="flex items-center hover:text-blue-400">
+                <FaAngleRight className="mr-2" /> Terms & Condition
+              </a>
+              <a href="#" className="flex items-center hover:text-blue-400">
+                <FaAngleRight className="mr-2" /> Regular FAQs
+              </a>
+              <a href="#" className="flex items-center hover:text-blue-400">
+                <FaAngleRight className="mr-2" /> Help & Support
+              </a>
+              <a href='/contact' className="flex items-center hover:text-blue-400">
+                <FaAngleRight className="mr-2" /> Contact
+              </a>
             </ul>
           </div>
         </div>

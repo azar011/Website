@@ -35,7 +35,7 @@ Message: ${message}`;
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-3 right-3 text-gray-600 hover:text-red-500"
+                    className="cursor-pointer absolute top-3 right-3 text-gray-600 hover:text-red-500"
                 >
                     <X size={24} />
                 </button>
@@ -68,7 +68,7 @@ Message: ${message}`;
                                 key={option}
                                 type="button"
                                 onClick={() => setSelectedOption(option)}
-                                className={`px-3 py-2 rounded-lg border text-sm font-medium transition-all ${selectedOption === option
+                                className={`cursor-pointer px-3 py-2 rounded-lg border text-sm font-medium transition-all ${selectedOption === option
                                         ? "bg-blue-600 text-white border-blue-600"
                                         : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                                     }`}
@@ -125,7 +125,7 @@ Message: ${message}`;
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition-all"
+                            className="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition-all"
                         >
                             Connect via WhatsApp
                         </button>
