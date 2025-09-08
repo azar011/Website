@@ -12,6 +12,8 @@ const CourseList = () => {
     setUpdateCourseName,
     updateCourseDescription,
     setUpdateCourseDescription,
+    updateCourseShortDescription,
+    setUpdateCourseShortDescription,
     updateCourseTopicsCount,
     setUpdateCourseTopicsCount,
     updateCourseHours,
@@ -55,6 +57,10 @@ const CourseList = () => {
               {course.courseImage && <img src={`${url}/uploads/${course.courseImage}`} alt={course.courseName} className="h-40 w-40 object-cover rounded-lg mb-4" />}
 
               {/* Details */}
+              <p className="text-gray-600 mb-2">
+                <span className="font-semibold">Short Description : </span>
+                {course.courseShortDescription}
+              </p>
               <p className="text-gray-600 mb-2">
                 <span className="font-semibold">Description : </span>
                 {course.courseDescription}
@@ -125,20 +131,24 @@ const CourseList = () => {
                 </div>
 
                 <div>
-                  <label className="block font-medium">Description</label>
-                  <textarea value={updateCourseDescription} onChange={(e) => setUpdateCourseDescription(e.target.value)} className="w-full border rounded-lg p-3" rows={5} required />
+                  <label className="block font-medium">Short Description</label>
+                  <textarea value={updateCourseShortDescription} onChange={(e) => setUpdateCourseShortDescription(e.target.value)} className="w-full border rounded-lg p-3" rows={2} required />
                 </div>
 
                 <div>
-                  <label className="block font-medium">Topics Count</label>
-                  <input type="number" value={updateCourseTopicsCount} onChange={(e) => setUpdateCourseTopicsCount(e.target.value)} className="w-full border rounded-lg p-3" />
+                  <label className="block font-medium">Description</label>
+                  <textarea value={updateCourseDescription} onChange={(e) => setUpdateCourseDescription(e.target.value)} className="w-full border rounded-lg p-3" rows={4} required />
                 </div>
-
                 
               </div>
 
               {/* Right Column */}
               <div className="space-y-4">
+
+                <div>
+                  <label className="block font-medium">Topics Count</label>
+                  <input type="number" value={updateCourseTopicsCount} onChange={(e) => setUpdateCourseTopicsCount(e.target.value)} className="w-full border rounded-lg p-3" />
+                </div>
 
                 <div>
                   <label className="block font-medium">Hours</label>
@@ -147,10 +157,8 @@ const CourseList = () => {
 
                 <div>
                   <label className="block font-medium">About</label>
-                  <textarea value={updateCourseAbout} onChange={(e) => setUpdateCourseAbout(e.target.value)} className="w-full border rounded-lg p-3" rows={5} />
+                  <textarea value={updateCourseAbout} onChange={(e) => setUpdateCourseAbout(e.target.value)} className="w-full border rounded-lg p-3" rows={3} />
                 </div>
-
-                
 
                 {/* What You Will Learn */}
                 <div>

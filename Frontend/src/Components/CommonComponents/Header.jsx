@@ -42,7 +42,7 @@ const Header = () => {
             <a href="#" className="hover:text-blue-700">
               <FaFacebookF />
             </a>
-            <a href="#" className="hover:text-blue-700">
+            <a href="https://www.instagram.com/vitecodetechnologies/?hl=en" target='_blank' className="hover:text-blue-700">
               <FaInstagram />
             </a>
             <a href="#" className="hover:text-blue-400">

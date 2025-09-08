@@ -1,10 +1,13 @@
 import React, { createContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 export const myContext = createContext()
 
 const MyContextProvider = ({children}) => {
+
+    const navigate = useNavigate()
 
     const url = 'http://localhost:5000'
 
@@ -106,6 +109,8 @@ const MyContextProvider = ({children}) => {
     }, [])
 
     const myContextValue = {
+
+        navigate, 
 
         url,
 

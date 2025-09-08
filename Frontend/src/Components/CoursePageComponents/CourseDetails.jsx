@@ -6,16 +6,15 @@ import Footer from "../CommonComponents/Footer";
 import { Link, useParams } from "react-router-dom";
 import { myContext } from "../../Context/MyContextProvider";
 
-const CoursePage = () => {
-
-    const staticContent = [
+const CourseDetails = () => {
+  const staticContent = [
     {
       id: "curriculum",
       label: "Curriculum",
       icon: "ListChecks",
       title: "Curriculum",
       paragraphs: ["This course includes:"],
-      list: ["80+ lessons across multiple modules", "Hands-on coding exercises", "Downloadable resources", "Real-world project: Spring Store"],
+      list: ["Structured lessons across multiple modules", "Hands-on practical exercises", "Real-world projects and case studies", "Guided learning with expert support"],
     },
     {
       id: "audience",
@@ -24,10 +23,10 @@ const CoursePage = () => {
       title: "Target Audience",
       paragraphs: ["This course is designed for developers who:"],
       list: [
-        "Are new to Spring Boot and want a strong foundation",
-        "Want to build enterprise-grade applications",
-        "Are Java developers aiming to upskill",
-        "Want to understand dependency injection and JPA deeply",
+        "Beginners who want to start their career in tech",
+        "Students looking to strengthen practical skills",
+        "Professionals aiming to upskill in modern technologies",
+        "Anyone interested in building real-world projects",
       ],
     },
     {
@@ -36,7 +35,7 @@ const CoursePage = () => {
       icon: "User",
       title: "Your Instructor",
       paragraphs: [
-        "Hi, I’m Anis Patima. With over 5 years of experience in the software industry, I’ve taught millions of students worldwide through my courses. My teaching style is practical, clear, and focused on real-world skills.",
+        "Your instructor brings over 5 years of hands-on experience in the software industry, working across multiple domains and projects. With a passion for teaching, the instructor has guided thousands of learners worldwide, making complex topics simple and practical. The sessions are structured to blend theory with real-world applications, ensuring that students not only understand the concepts but also gain the confidence to implement them. ",
       ],
     },
     {
@@ -132,13 +131,13 @@ const CoursePage = () => {
               </Link>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 w-full max-w-xs sm:max-w-sm md:w-[320px] mx-auto border border-transparent hover:border-blue-200">
+            <div className="bg-white rounded-2xl p-6 shadow-2xl transition-all duration-300 w-full max-w-xs sm:max-w-sm md:w-[320px] mx-auto border border-blue-200">
               <ul className="space-y-4">
                 <li className="flex items-center gap-3">
                   <span className="text-blue-700 text-lg">
                     <FaLayerGroup />
                   </span>
-                  <span>Beginner to Intermediate</span>
+                  <span>Beginner to Advance</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="text-blue-700 text-lg">
@@ -211,7 +210,7 @@ const CoursePage = () => {
                     <h2 className="text-3xl font-bold mb-4">{item.title}</h2>
                     {item.paragraphs &&
                       item.paragraphs.map((p, i) => (
-                        <p key={i} className="text-black mb-4">
+                        <p key={i} className="leading-7 text-black mb-4">
                           {p}
                         </p>
                       ))}
@@ -234,4 +233,4 @@ const CoursePage = () => {
   );
 };
 
-export default CoursePage;
+export default CourseDetails;

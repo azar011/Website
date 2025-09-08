@@ -109,7 +109,7 @@ const AddService = () => {
         {/* Submit */}
         <button
           type="submit"
-          className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold"
+          className="cursor-pointer w-full bg-green-600 text-white py-2 rounded-lg font-semibold"
         >
           Save
         </button>

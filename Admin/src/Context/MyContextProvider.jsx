@@ -299,6 +299,7 @@ const MyContextProvider = ({ children }) => {
 
     const [ courseName, setCourseName ] = useState("");
     const [ courseDescription, setCourseDescription ] = useState("");
+    const [ courseShortDescription, setCourseShortDescription ] = useState("");
     const [ courseTopicsCount, setCourseTopicsCount ] = useState("");
     const [ courseHours, setCourseHours ] = useState("");
     const [ courseAbout, setCourseAbout ] = useState("");
@@ -324,6 +325,7 @@ const MyContextProvider = ({ children }) => {
             const formData = new FormData();
             formData.append("courseName", courseName);
             formData.append("courseDescription", courseDescription);
+            formData.append("courseShortDescription", courseShortDescription);
             formData.append("courseTopicsCount", courseTopicsCount);
             formData.append("courseHours", courseHours);
             formData.append("courseAbout", courseAbout);
@@ -354,6 +356,7 @@ const MyContextProvider = ({ children }) => {
 
             setCourseName("");
             setCourseDescription("");
+            setCourseShortDescription("");
             setCourseTopicsCount("");
             setCourseHours("");
             setCourseAbout("");
@@ -410,7 +413,7 @@ const MyContextProvider = ({ children }) => {
         setExpandedCourse(expandedCourse === id ? null : id);
     };
 
-    // Course Delete Fun 
+    // Course Delete Fun
 
     const courseDeleteFun = async (courseID) => {
         toast.info(
@@ -448,6 +451,7 @@ const MyContextProvider = ({ children }) => {
 
     const [ updateCourseName, setUpdateCourseName ] = useState("");
     const [ updateCourseDescription, setUpdateCourseDescription ] = useState("");
+    const [ updateCourseShortDescription, setUpdateCourseShortDescription ] = useState("");
     const [ updateCourseTopicsCount, setUpdateCourseTopicsCount ] = useState("");
     const [ updateCourseHours, setUpdateCourseHours ] = useState("");
     const [ updateCourseAbout, setUpdateCourseAbout ] = useState("");
@@ -473,6 +477,7 @@ const MyContextProvider = ({ children }) => {
         if (course) {
             setUpdateCourseName(course.courseName);
             setUpdateCourseDescription(course.courseDescription);
+            setUpdateCourseShortDescription(course.courseShortDescription);
             setUpdateCourseTopicsCount(course.courseTopicsCount);
             setUpdateCourseHours(course.courseHours);
             setUpdateCourseAbout(course.courseAbout);
@@ -489,6 +494,7 @@ const MyContextProvider = ({ children }) => {
             const formData = new FormData();
             formData.append("courseName", updateCourseName);
             formData.append("courseDescription", updateCourseDescription);
+            formData.append("courseShortDescription", updateCourseShortDescription);
             formData.append("courseTopicsCount", updateCourseTopicsCount);
             formData.append("courseHours", updateCourseHours);
             formData.append("courseAbout", updateCourseAbout);
@@ -583,6 +589,7 @@ const MyContextProvider = ({ children }) => {
         courseImgPreview, 
         courseName, setCourseName,
         courseDescription, setCourseDescription,
+        courseShortDescription, setCourseShortDescription,
         courseTopicsCount, setCourseTopicsCount,
         courseHours, setCourseHours,
         courseAbout, setCourseAbout,
@@ -594,6 +601,7 @@ const MyContextProvider = ({ children }) => {
 
         updateCourseName, setUpdateCourseName,
         updateCourseDescription, setUpdateCourseDescription,
+        updateCourseShortDescription, setUpdateCourseShortDescription,
         updateCourseTopicsCount, setUpdateCourseTopicsCount,
         updateCourseHours, setUpdateCourseHours,
         updateCourseAbout, setUpdateCourseAbout,

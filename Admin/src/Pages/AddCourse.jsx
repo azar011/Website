@@ -8,6 +8,8 @@ const AddCourse = () => {
   const {
     courseName,
     setCourseName,
+    courseShortDescription, 
+    setCourseShortDescription,
     courseDescription,
     setCourseDescription,
     courseTopicsCount,
@@ -66,6 +68,17 @@ const AddCourse = () => {
             type="text"
             value={courseName}
             onChange={(e) => setCourseName(e.target.value)}
+            className="w-full p-2 border rounded-lg"
+            required
+          />
+        </div>
+
+        {/* Short Description */}
+        <div>
+          <label className="block mb-1 font-medium">Short Description</label>
+          <textarea
+            value={courseShortDescription}
+            onChange={(e) => setCourseShortDescription(e.target.value)}
             className="w-full p-2 border rounded-lg"
             required
           />

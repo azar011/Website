@@ -9,6 +9,7 @@ const addCourse = async (req, res) => {
       courseImage: req.file.filename,
       courseName: req.body.courseName,
       courseDescription: req.body.courseDescription,
+      courseShortDescription: req.body.courseShortDescription,
       courseTopicsCount: req.body.courseTopicsCount,
       courseHours: req.body.courseHours,
       courseAbout: req.body.courseAbout,
@@ -86,6 +87,5 @@ const updateCourse = async (req, res) => {
     res.status(500).send(`Error Name : ${err.name}, Error Message : ${err.message}`);
   }
 };
-
 
 module.exports = { addCourse, getCourse, deleteCourse, updateCourse };

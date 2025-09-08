@@ -55,12 +55,12 @@ const HeroSection = () => {
             From enterprise IT solutions to real-world training, ViteCode Technologies helps you build, scale, and succeed.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:space-x-4">
-            <button className="cursor-pointer px-6 py-3 bg-blue-700 hover:bg-blue-700 text-white rounded-lg font-semibold shadow-md w-full sm:w-auto">
+            <a href='/contact' className="cursor-pointer px-6 py-3 bg-blue-700 hover:bg-blue-700 text-white rounded-lg font-semibold shadow-md w-full sm:w-auto">
               Connect Us
-            </button>
-            <button className="cursor-pointer px-6 py-3 border border-blue-700 text-blue-700 hover:bg-blue-50 rounded-lg font-semibold w-full sm:w-auto">
+            </a>
+            <a href='/course' className="cursor-pointer px-6 py-3 border border-blue-700 text-blue-700 hover:bg-blue-50 rounded-lg font-semibold w-full sm:w-auto">
               Our Courses
-            </button>
+            </a>
           </div>
 
         </div>

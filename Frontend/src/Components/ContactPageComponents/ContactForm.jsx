@@ -29,6 +29,7 @@ const ContactForm = () => {
         <div className="flex flex-col md:flex-row w-full max-w-5xl rounded-2xl overflow-hidden shadow-[0_0_20px_rgba(37,99,235,0.5)] m-4 my-10">
           {/* Left Section */}
           <div className="bg-[#0b0a27] text-white p-8 flex flex-col justify-between md:w-1/2">
+            
             <div>
               <h1 className="leading-15 lg:text-5xl md:text-4xl font-bold lg:block md:block hidden">
                 Let’s Design Your <br />
@@ -72,13 +73,14 @@ const ContactForm = () => {
               <a href="#" className="hover:text-blue-400">
                 <FaFacebookF />
               </a>
-              <a href="#" className="hover:text-blue-400">
+              <a href="https://www.instagram.com/vitecodetechnologies/?hl=en" target='_blank' className="hover:text-blue-400">
                 <FaInstagram />
               </a>
               <a href="#" className="hover:text-blue-400">
                 <FaXTwitter />
               </a>
             </div>
+
           </div>
 
           {/* Right Section */}
