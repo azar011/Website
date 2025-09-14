@@ -97,10 +97,10 @@ const Header = () => {
 
           {/* Nav Links */}
 
-              <div
-                className={`w-full transition-all duration-1000 ease-in-out md:flex md:w-auto md:order-1 
+          <div
+            className={`w-full transition-all duration-1000 ease-in-out md:flex md:w-auto md:order-1 
                   ${isMenuOpen ? "block" : "hidden"} md:block`}
-              >
+          >
             <ul
               className="flex flex-col font-medium p-4 md:p-0 mt-3
               rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 
