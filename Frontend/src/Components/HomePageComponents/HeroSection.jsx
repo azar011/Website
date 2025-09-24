@@ -32,7 +32,7 @@ const HeroSection = () => {
   }, [subIndex, index, reverse]);
 
   return (
-    <section className="bg-gray-50 lg:py-22 lg:px-6 md:px-6 px-2">
+    <section className="bg-gray-50 lg:py-26 lg:px-6 md:px-6 px-2">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 lg:py-0 py-6 items-center gap-12">
         {/* Left Side: Headline & Text */}
         <div className='lg:ps-5'>

@@ -200,7 +200,7 @@ const CourseDetails = () => {
                 </ul>
 
                 <div className="mt-8">
-                  <button className="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition duration-300">Enroll Now</button>
+                  <a className="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition duration-300 cursor-pointer"href="/contact" >Enroll Now</a>
                 </div>
               </aside>
 

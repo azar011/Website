@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { myContext } from "../../Context/MyContextProvider";
+import { images } from "../../assets/assets";
 
 const AboutHero = () => {
 
@@ -8,7 +9,7 @@ const AboutHero = () => {
   return (
     <>
       <div className ='bg-[#001F3F]'>
-        <section className="max-w-7xl mx-auto text-white px-6 md:px-16 py-12 relative overflow-hidden">
+        <section className="max-w-7xl mx-auto text-white px-6 md:px-16 py-20 relative overflow-hidden">
           <div className="grid md:grid-cols-2 items-center gap-3">
             {/* Left Content */}
             <div className="space-y-6">
@@ -30,7 +31,7 @@ const AboutHero = () => {
             </div>
 
             <div className="absolute top-0 right-0 w-60 h-60 rounded-full opacity-20 blur-3xl"></div>
-            <img src="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg" alt="Student learning" className="relative z-10 rounded-2xl shadow-lg" />
+            <img src={images.AboutImage} alt="Student learning" className="relative z-10" />
           </div>
         </section>
       </div>

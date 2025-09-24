@@ -87,7 +87,7 @@ const ContactForm = () => {
           <div className="bg-white p-8 md:w-1/2">
             <p className="font-medium mb-4 lg:text-3xl md:text-2xl text-xl">I'm interested in...</p>
 
-            <div className="flex flex-wrap gap-3 mb-4">
+            <div className="flex flex-wrap gap-3">
               {contactInterestsList.map((value) => (
                 <button
                   key={value}
@@ -103,7 +103,7 @@ const ContactForm = () => {
 
             {contactEnquirySubmitted && selectedContactInterests.length === 0 && <p className="text-red-500 text-sm mb-4">* Please select at least one interest</p>}
 
-            <form className="space-y-5" onSubmit={contactEnquirySubmitForm}>
+            <form className="space-y-5 mt-5" onSubmit={contactEnquirySubmitForm}>
               <div>
                 <label className="block text-sm mb-2 font-medium">
                   Enter Your Name <span className="text-red-500">*</span>

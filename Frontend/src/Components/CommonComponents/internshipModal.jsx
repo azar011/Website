@@ -31,7 +31,7 @@ Message: ${message}`;
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
-            <div className="bg-white rounded-2xl shadow-xl w-[750px] max-w-full relative flex flex-col md:flex-row">
+            <div className="bg-white rounded-2xl shadow-xl w-[950px] max-w-full relative flex flex-col md:flex-row">
                 {/* Close Button */}
                 <button
                     onClick={onClose}

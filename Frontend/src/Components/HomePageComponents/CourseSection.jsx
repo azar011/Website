@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 const CourseSection = () => {
   const { courseData, url } = useContext(myContext);
+
+  console.log(courseData);
+  
   const navigate = useNavigate();
 
   return (
@@ -17,10 +20,9 @@ const CourseSection = () => {
 
         {/* Course Cards */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* {courseData.slice(0, 4).map((value, index) => ( */}
             {courseData
               .filter(course => 
-                ["MERN Full Stack", "Python Full Stack", "Data Analysis", "Data Science"]
+                ["MERN Full Stack", "Python Full Stack", "Data Analytics", "Data Science"]
                   .includes(course.courseName)
               )
              .map((value, index) => (
