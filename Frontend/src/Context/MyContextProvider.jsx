@@ -9,7 +9,7 @@ const MyContextProvider = ({children}) => {
 
     const navigate = useNavigate()
 
-    const url = 'https://vitecodetech.onrender.com/'
+    const url = 'http://localhost:5000'
 
     // Service Data Fetching
 
